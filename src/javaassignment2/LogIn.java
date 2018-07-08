@@ -21,8 +21,9 @@ public class LogIn extends javax.swing.JFrame {
         txtPass = new javax.swing.JPasswordField();
         txtUsername = new javax.swing.JTextField();
         btnRegister = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        menu1 = new javax.swing.JMenu();
+        menuBar = new javax.swing.JMenuBar();
+        menuSystem = new javax.swing.JMenu();
+        menuItemAdmin = new javax.swing.JMenuItem();
         menuItemExit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,7 +62,15 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
 
-        menu1.setText("System");
+        menuSystem.setText("System");
+
+        menuItemAdmin.setText("Switch to admin");
+        menuItemAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemAdminActionPerformed(evt);
+            }
+        });
+        menuSystem.add(menuItemAdmin);
 
         menuItemExit.setText("Exit");
         menuItemExit.addActionListener(new java.awt.event.ActionListener() {
@@ -69,11 +78,11 @@ public class LogIn extends javax.swing.JFrame {
                 menuItemExitActionPerformed(evt);
             }
         });
-        menu1.add(menuItemExit);
+        menuSystem.add(menuItemExit);
 
-        jMenuBar1.add(menu1);
+        menuBar.add(menuSystem);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,6 +157,11 @@ public class LogIn extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_menuItemExitActionPerformed
 
+    private void menuItemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAdminActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_menuItemAdminActionPerformed
+
     public void run() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -184,11 +198,12 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUsername;
-    private javax.swing.JMenu menu1;
+    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenuItem menuItemAdmin;
     private javax.swing.JMenuItem menuItemExit;
+    private javax.swing.JMenu menuSystem;
     private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables

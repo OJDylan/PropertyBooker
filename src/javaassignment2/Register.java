@@ -166,6 +166,8 @@ public class Register extends javax.swing.JFrame {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
+        
+        //Empty textfields
         txtFName.setText(null);
         txtLName.setText(null);
         txtUsername.setText(null);
@@ -194,9 +196,6 @@ public class Register extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnRegisterActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public void run() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
