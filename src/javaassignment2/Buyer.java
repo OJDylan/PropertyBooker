@@ -1,0 +1,62 @@
+package javaassignment2;
+
+import java.sql.*;
+import java.util.logging.*;
+import javax.swing.*;
+
+public class Buyer extends User{
+//    private int buyerId;
+    private String buyerFName;
+    private String buyerLName;
+    private String hpNum; 
+    private String email;
+    
+    //Constructor to call class
+    public Buyer(){
+        
+    }
+    
+    //Overloaded constructor to initialize values
+    public Buyer(String fname, String lname, String uname, String pass, String hpnum, String em){
+        buyerFName = fname;
+        buyerLName = lname;
+        hpNum = hpnum;
+        email = em;
+        super.userName = uname;
+        super.userPass = pass;
+    }
+    
+    public void register(){
+        try {
+            //Create statement to connect to the database
+            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+            
+            //Store sql statements into a variable
+            String sql ="INSERT INTO BUYER " + "VALUES(" +
+                        "'" + buyerFName + "'" + "," +
+                        "'" + buyerLName + "'" + "," +
+                        "'" + hpNum + "'" + "," +
+                        "'" + email + "'" + ")";
+            
+            String sql2 ="INSERT INTO APPUSER " + "VALUES(" +
+                         "'" + super.userName + "'" + "," +
+                         "'" + super.userPass + "'" + ")";
+            
+            //Executes sql satement
+            s.executeUpdate(sql);
+            s.executeUpdate(sql2);
+            
+            //Shows successful message
+            JOptionPane.showMessageDialog(null, "Account successfully created!");
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Failed to create account, please try again");
+            Logger.getLogger(Buyer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void login(){
+        LogIn li = new LogIn();
+        li.run();
+    }
+}
