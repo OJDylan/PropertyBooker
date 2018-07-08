@@ -184,17 +184,17 @@ public class Register extends javax.swing.JFrame {
         if(txtUsername.getText().equals("") && txtPassword.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Username and Password required");
         }
+        else if(txtUsername.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Username required");
+        }
         else if(txtFName.getText().equals("")){
             JOptionPane.showMessageDialog(null, "First Name required");
         }
         else if(txtContactNumber.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Contact Number required");
         }
-        else if(txtFName.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "First Name required");
-        }
         else if(txtEmail.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "First Name required");
+            JOptionPane.showMessageDialog(null, "Email required");
         }
         else if(!txtPassword.getText().equals(txtCPassword.getText())){
             JOptionPane.showMessageDialog(null, "Password does not match!");
