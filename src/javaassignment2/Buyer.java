@@ -16,7 +16,7 @@ public class Buyer extends User{
         
     }
     
-    //Overloaded constructor to initialize values
+    //Overloaded constructor to initialize values when called
     public Buyer(String fname, String lname, String uname, String pass, String hpnum, String em){
         buyerFName = fname;
         buyerLName = lname;
@@ -55,9 +55,10 @@ public class Buyer extends User{
         }
     }
 
-    //@Override
+    @Override
     public void login(){
         LogIn li = new LogIn();
         li.run();
     }
+    
 }

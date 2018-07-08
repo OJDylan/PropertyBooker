@@ -1,5 +1,7 @@
 package javaassignment2;
 
+import javax.swing.JOptionPane;
+
 public class Register extends javax.swing.JFrame {
     public Register() {
         initComponents();
@@ -179,21 +181,38 @@ public class Register extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
-        
-        //Call buyer class
-        Buyer buyer = new Buyer(
-                                txtFName.getText(),
-                                txtLName.getText(),
-                                txtUsername.getText(),
-                                txtPassword.getText(),
-                                txtContactNumber.getText(),
-                                txtEmail.getText()
-                                );
+        if(txtUsername.getText().equals("") && txtPassword.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Username and Password required");
+        }
+        else if(txtFName.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "First Name required");
+        }
+        else if(txtContactNumber.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Contact Number required");
+        }
+        else if(txtFName.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "First Name required");
+        }
+        else if(txtEmail.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "First Name required");
+        }
+        else if(!txtPassword.getText().equals(txtCPassword.getText())){
+            JOptionPane.showMessageDialog(null, "Password does not match!");
+        }
+        else{
+            Buyer buyer = new Buyer(
+                                    txtFName.getText(),
+                                    txtLName.getText(),
+                                    txtUsername.getText(),
+                                    txtPassword.getText(),
+                                    txtContactNumber.getText(),
+                                    txtEmail.getText()
+                                    );
+            
+            buyer.register();
 
-        //Call register class to store data into database
-        buyer.register();
-
-        dispose();
+            dispose();
+        }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     public void run() {
