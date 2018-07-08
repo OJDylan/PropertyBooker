@@ -1,7 +1,5 @@
 package javaassignment2;
 
-import javax.swing.JOptionPane;
-
 public class Register extends javax.swing.JFrame {
     public Register() {
         initComponents();
