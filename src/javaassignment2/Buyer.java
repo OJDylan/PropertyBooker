@@ -25,6 +25,7 @@ public class Buyer extends User{
         super.userPass = pass;
     }
     
+    //Register from register page
     public void register(){
         try {
             //Create statement to connect to the database
@@ -50,8 +51,7 @@ public class Buyer extends User{
             Logger.getLogger(Buyer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    @Override
+    
     public void login(){
         LogIn li = new LogIn();
         li.run();
