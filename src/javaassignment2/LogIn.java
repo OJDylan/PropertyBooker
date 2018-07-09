@@ -154,6 +154,7 @@ public class LogIn extends javax.swing.JFrame {
                         if(rs.getString("PASSWORD").equals(txtPass.getText())){
                             PropertyPage property = new PropertyPage();
                             property.run();
+                            dispose();
                         }
                         else{
                             JOptionPane.showMessageDialog(null, "Wrong username or password.");

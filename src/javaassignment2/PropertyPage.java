@@ -134,7 +134,7 @@ public class PropertyPage extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPropertyStatus1)
                             .addComponent(lblPropertyStatusD1))))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         pack();

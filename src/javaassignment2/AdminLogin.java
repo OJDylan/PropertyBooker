@@ -143,7 +143,7 @@ public class AdminLogin extends javax.swing.JFrame {
                 while(rs.next()) {
                     if (rs.getString("AGENT_NAME").equals(txtAdminName.getText())) {
                         if(rs.getString("AGENT_PASSWORD").equals(txtAdminPass.getText())){
-                            JOptionPane.showMessageDialog(null, "SHOW");
+                            JOptionPane.showMessageDialog(null, "");
                         }
                         else{
                             JOptionPane.showMessageDialog(null, "Wrong admin name or password.");
