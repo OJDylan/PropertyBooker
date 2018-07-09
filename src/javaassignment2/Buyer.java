@@ -33,20 +33,17 @@ public class Buyer extends User{
             
             //Store sql statements into a variable
             String sql ="INSERT INTO BUYER " + "VALUES(" +
+                        "'" + super.userName + "'" + "," +
+                        "'" + super.userPass + "'" + "," +
                         "'" + buyerFName + "'" + "," +
                         "'" + buyerLName + "'" + "," +
                         "'" + hpNum + "'" + "," +
-                        "'" + email + "'" + ")";
-            
-            String sql2 ="INSERT INTO APPUSER " + "VALUES(" +
-                         "'" + super.userName + "'" + "," +
-                         "'" + super.userPass + "'" + ")";
+                        "'" + email + "'" + ")";        
             
             //Executes sql satement
             s.executeUpdate(sql);
-            s.executeUpdate(sql2);
             
-            //Shows successful message
+            //Shows register successful message
             JOptionPane.showMessageDialog(null, "Account successfully created!");
             
         } catch (SQLException ex) {
