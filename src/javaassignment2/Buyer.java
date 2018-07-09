@@ -31,16 +31,16 @@ public class Buyer extends User{
             Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
             
             //Variable for SQL command
-            String sql ="INSERT INTO BUYER " + "VALUES(" +
+            String update ="INSERT INTO BUYER " + "VALUES(" +
                         "'" + super.userName + "'" + "," +
                         "'" + super.userPass + "'" + "," +
                         "'" + buyerFName + "'" + "," +
                         "'" + buyerLName + "'" + "," +
                         "'" + hpNum + "'" + "," +
-                        "'" + email + "'" + ")";        
+                        "'" + email + "'" + ")";
             
             //Executes sql satement
-            s.executeUpdate(sql);
+            s.executeUpdate(update);
             
             //Shows register successful message
             JOptionPane.showMessageDialog(null, "Account successfully created!");
