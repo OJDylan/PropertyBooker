@@ -17,6 +17,12 @@ public class PropertyPage extends javax.swing.JFrame {
         lblPropertyStatus1 = new javax.swing.JLabel();
         lblPropertyName1 = new javax.swing.JLabel();
         lblPropertyType1 = new javax.swing.JLabel();
+        lblPropertyNameD = new javax.swing.JLabel();
+        lblPropertyTypeD = new javax.swing.JLabel();
+        lblPropertyStatusD = new javax.swing.JLabel();
+        lblPropertyNameD1 = new javax.swing.JLabel();
+        lblPropertyTypeD1 = new javax.swing.JLabel();
+        lblPropertyStatusD1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Property Search!");
@@ -44,6 +50,24 @@ public class PropertyPage extends javax.swing.JFrame {
         lblPropertyType1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblPropertyType1.setText("Type");
 
+        lblPropertyNameD.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblPropertyNameD.setText("<property name>");
+
+        lblPropertyTypeD.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblPropertyTypeD.setText("<property type>");
+
+        lblPropertyStatusD.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblPropertyStatusD.setText("<property status>");
+
+        lblPropertyNameD1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblPropertyNameD1.setText("<property name>");
+
+        lblPropertyTypeD1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblPropertyTypeD1.setText("<property type>");
+
+        lblPropertyStatusD1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblPropertyStatusD1.setText("<property status>");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -55,15 +79,27 @@ public class PropertyPage extends javax.swing.JFrame {
                     .addComponent(propertyPic2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblPropertyName)
-                        .addComponent(lblPropertyStatus, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblPropertyType, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblPropertyName1)
-                        .addComponent(lblPropertyStatus1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblPropertyType1, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(465, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblPropertyName)
+                            .addComponent(lblPropertyStatus, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPropertyType, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblPropertyNameD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPropertyTypeD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPropertyStatusD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblPropertyName1)
+                            .addComponent(lblPropertyStatus1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPropertyType1, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblPropertyNameD1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPropertyStatusD1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPropertyTypeD1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,20 +108,32 @@ public class PropertyPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(propertyPic1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblPropertyName)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPropertyName)
+                            .addComponent(lblPropertyNameD))
                         .addGap(18, 18, 18)
-                        .addComponent(lblPropertyType)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPropertyType)
+                            .addComponent(lblPropertyTypeD))
                         .addGap(23, 23, 23)
-                        .addComponent(lblPropertyStatus)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPropertyStatus)
+                            .addComponent(lblPropertyStatusD))))
                 .addGap(97, 97, 97)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(propertyPic2)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblPropertyName1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPropertyName1)
+                            .addComponent(lblPropertyNameD1))
                         .addGap(18, 18, 18)
-                        .addComponent(lblPropertyType1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPropertyType1)
+                            .addComponent(lblPropertyTypeD1))
                         .addGap(18, 18, 18)
-                        .addComponent(lblPropertyStatus1)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPropertyStatus1)
+                            .addComponent(lblPropertyStatusD1))))
                 .addContainerGap(116, Short.MAX_VALUE))
         );
 
@@ -128,10 +176,16 @@ public class PropertyPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblPropertyName;
     private javax.swing.JLabel lblPropertyName1;
+    private javax.swing.JLabel lblPropertyNameD;
+    private javax.swing.JLabel lblPropertyNameD1;
     private javax.swing.JLabel lblPropertyStatus;
     private javax.swing.JLabel lblPropertyStatus1;
+    private javax.swing.JLabel lblPropertyStatusD;
+    private javax.swing.JLabel lblPropertyStatusD1;
     private javax.swing.JLabel lblPropertyType;
     private javax.swing.JLabel lblPropertyType1;
+    private javax.swing.JLabel lblPropertyTypeD;
+    private javax.swing.JLabel lblPropertyTypeD1;
     private javax.swing.JLabel propertyPic1;
     private javax.swing.JLabel propertyPic2;
     // End of variables declaration//GEN-END:variables
