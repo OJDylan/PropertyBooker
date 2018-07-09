@@ -5,7 +5,6 @@ import java.util.logging.*;
 import javax.swing.*;
 
 public class Buyer extends User{
-//    private int buyerId;
     private String buyerFName;
     private String buyerLName;
     private String hpNum; 
@@ -31,7 +30,7 @@ public class Buyer extends User{
             //Create statement to connect to the database
             Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
             
-            //Store sql statements into a variable
+            //Variable for SQL command
             String sql ="INSERT INTO BUYER " + "VALUES(" +
                         "'" + super.userName + "'" + "," +
                         "'" + super.userPass + "'" + "," +
