@@ -156,13 +156,8 @@ public class LogIn extends javax.swing.JFrame {
                             property.run();
                             dispose();
                         }
-                        else{
-                            JOptionPane.showMessageDialog(null, "Wrong username or password.");
-                        }
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Wrong username or password.");
-                    }
+                        // Have some error message if username or password doesn't exist
+                    }    
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);

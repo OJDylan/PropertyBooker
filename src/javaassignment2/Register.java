@@ -177,7 +177,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
         if(txtUsername.getText().equals("") && txtPassword.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Username and Password required");
         }
