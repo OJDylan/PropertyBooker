@@ -1,5 +1,11 @@
 package javaassignment2;
 
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class AdminLogin extends javax.swing.JFrame {
@@ -129,7 +135,27 @@ public class AdminLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Password required.");
         }
         else{
-            JOptionPane.showMessageDialog(null, "Log in unavailable.");
+            try {
+                Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+                String sql = "SELECT * FROM AGENT";
+                ResultSet rs = s.executeQuery(sql);
+            
+                while(rs.next()) {
+                    if (rs.getString("AGENT_NAME").equals(txtAdminName.getText())) {
+                        if(rs.getString("AGENT_PASSWORD").equals(txtAdminPass.getText())){
+                            JOptionPane.showMessageDialog(null, "SHOW");
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null, "Wrong admin name or password.");
+                        }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Wrong admin name or password.");
+                    }
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
     }//GEN-LAST:event_btnLoginActionPerformed

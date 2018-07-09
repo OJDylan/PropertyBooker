@@ -1,5 +1,11 @@
 package javaassignment2;
 
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class LogIn extends javax.swing.JFrame {
@@ -128,17 +134,38 @@ public class LogIn extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        if(txtUsername.getText().equals("") && txtPass.getText().equals("")){
+        if(txtUsername.getText().isEmpty() && txtPass.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Username and Password required.");
         }
-        else if(txtUsername.getText().equals("")){
+        else if(txtUsername.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Username required.");
         }
-        else if(txtPass.getText().equals("")){
+        else if(txtPass.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Password required.");
         }
         else{
-            JOptionPane.showMessageDialog(null, "Log in unavailable.");
+            try {
+                Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+                String sql = "SELECT * FROM BUYER";
+                ResultSet rs = s.executeQuery(sql);
+            
+                while(rs.next()) {
+                    if (rs.getString("USERNAME").equals(txtUsername.getText())) {
+                        if(rs.getString("PASSWORD").equals(txtPass.getText())){
+                            PropertyPage property = new PropertyPage();
+                            property.run();
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null, "Wrong username or password.");
+                        }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Wrong username or password.");
+                    }
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
