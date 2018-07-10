@@ -29,7 +29,7 @@ public class AdminLogin extends javax.swing.JFrame {
         menuItemExit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Property Search!");
+        setTitle("Property Search! (Admin)");
         setName("PropertySearch"); // NOI18N
         setResizable(false);
 
@@ -145,6 +145,7 @@ public class AdminLogin extends javax.swing.JFrame {
                         if(rs.getString("AGENT_PASSWORD").equals(txtAdminPass.getText())){
                             AdminPage a = new AdminPage();
                             a.run();
+                            dispose();
                         }
                         // Have some error message if username or password doesn't exist
                     }

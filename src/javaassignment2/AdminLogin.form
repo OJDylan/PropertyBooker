@@ -32,7 +32,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Property Search!"/>
+    <Property name="title" type="java.lang.String" value="Property Search! (Admin)"/>
     <Property name="name" type="java.lang.String" value="PropertySearch" noResource="true"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
