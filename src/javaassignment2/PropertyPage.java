@@ -81,7 +81,7 @@ public class PropertyPage extends javax.swing.JFrame {
         btnContact2 = new javax.swing.JButton();
         btnContact1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Property Search!");
         setResizable(false);
 
@@ -242,7 +242,7 @@ public class PropertyPage extends javax.swing.JFrame {
             String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + 1;
             ResultSet rs = s.executeQuery(sql);
             while(rs.next()){
-                JOptionPane.showMessageDialog(null, "Please call " + rs.getString("AGENT_CONTACT"));
+                JOptionPane.showMessageDialog(null, "Contact " + rs.getString("AGENT_NAME") + " @ " + rs.getString("AGENT_CONTACT"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(PropertyPage.class.getName()).log(Level.SEVERE, null, ex);
@@ -257,7 +257,7 @@ public class PropertyPage extends javax.swing.JFrame {
             String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + 2;
             ResultSet rs = s.executeQuery(sql);
             while(rs.next()){
-                JOptionPane.showMessageDialog(null, "Please call " + rs.getString("AGENT_CONTACT"));
+                JOptionPane.showMessageDialog(null, "Contact " + rs.getString("AGENT_NAME") + " @ " + rs.getString("AGENT_CONTACT"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(PropertyPage.class.getName()).log(Level.SEVERE, null, ex);

@@ -1,11 +1,5 @@
 package javaassignment2;
 
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class LogIn extends javax.swing.JFrame {
@@ -144,24 +138,9 @@ public class LogIn extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Password required.");
         }
         else{
-            try {
-                Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-                String sql = "SELECT * FROM BUYER";
-                ResultSet rs = s.executeQuery(sql);
-            
-                while(rs.next()) {
-                    if (rs.getString("USERNAME").equals(txtUsername.getText())) {
-                        if(rs.getString("PASSWORD").equals(txtPass.getText())){
-                            PropertyPage property = new PropertyPage();
-                            property.run();
-                            dispose();
-                        }
-                        // Have some error message if username or password doesn't exist
-                    }    
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            User u = new User();
+            u.verifyLogin(txtUsername.getText(), txtPass.getText());
+            dispose();
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
