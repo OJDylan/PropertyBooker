@@ -119,6 +119,8 @@ public class AdminLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+        User u = new User();
+        
         if(txtAdminName.getText().equals("") && txtAdminPass.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Admin Name and Password required.");
         }
@@ -128,12 +130,14 @@ public class AdminLogin extends javax.swing.JFrame {
         else if(txtAdminPass.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Password required.");
         }
-        else{
-            User u = new User();
-            u.verifyLogin(txtAdminName.getText(), txtAdminPass.getText());
+        else if(u.verifyAdminLogin(txtAdminName.getText(), txtAdminPass.getText()) == true){
+            AdminPage a = new AdminPage();
+            a.run();
             dispose();
         }
-        
+        else{
+            JOptionPane.showMessageDialog(null, "Wrong Admin Name or Password");
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed

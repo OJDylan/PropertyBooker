@@ -128,6 +128,8 @@ public class LogIn extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+        User u = new User();
+        
         if(txtUsername.getText().isEmpty() && txtPass.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Username and Password required.");
         }
@@ -137,10 +139,13 @@ public class LogIn extends javax.swing.JFrame {
         else if(txtPass.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Password required.");
         }
-        else{
-            User u = new User();
-            u.verifyLogin(txtUsername.getText(), txtPass.getText());
+        else if(u.verifyUserLogin(txtUsername.getText(), txtPass.getText()) == true){
+            PropertyPage p = new PropertyPage();
+            p.run();
             dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Wrong Username or Password");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
