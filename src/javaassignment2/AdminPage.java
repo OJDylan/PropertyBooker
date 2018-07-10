@@ -14,6 +14,7 @@ public class AdminPage extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Admin");
 
         jMenu1.setText("System");
 
