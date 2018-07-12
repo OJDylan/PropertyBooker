@@ -10,7 +10,7 @@ public class AdminPage extends javax.swing.JFrame {
     private void initComponents() {
 
         btnCreateReport = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        menubarAdmin = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuitemEdit = new javax.swing.JMenuItem();
 
@@ -35,9 +35,9 @@ public class AdminPage extends javax.swing.JFrame {
         });
         jMenu1.add(menuitemEdit);
 
-        jMenuBar1.add(jMenu1);
+        menubarAdmin.add(jMenu1);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menubarAdmin);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,7 +105,7 @@ public class AdminPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateReport;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar menubarAdmin;
     private javax.swing.JMenuItem menuitemEdit;
     // End of variables declaration//GEN-END:variables
 

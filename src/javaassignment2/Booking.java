@@ -4,7 +4,7 @@ public class Booking{
     public int bookingId;
     public int agentId;
     
-    public boolean confirmBooking(){
-        return true;
+    public void confirmBooking(){
+        //updates to SQL
     }
 }
