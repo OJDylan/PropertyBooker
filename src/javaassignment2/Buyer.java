@@ -5,8 +5,8 @@ import java.util.logging.*;
 import javax.swing.*;
 
 public class Buyer extends User{
-    private String buyerFName;
-    private String buyerLName;
+    public String buyerFName;
+    public String buyerLName;
     private String hpNum; 
     private String email;
     
@@ -85,4 +85,7 @@ public class Buyer extends User{
         li.run();
     }
     
+    public void updateProfile(){
+        
+    }
 }

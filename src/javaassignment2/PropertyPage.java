@@ -87,6 +87,9 @@ public class PropertyPage extends javax.swing.JFrame {
         lblCBPropertyStatus = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        menuitemLogout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Property Search!");
@@ -283,6 +286,20 @@ public class PropertyPage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jMenu1.setText("System");
+
+        menuitemLogout.setText("Logout");
+        menuitemLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuitemLogoutActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuitemLogout);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -301,7 +318,7 @@ public class PropertyPage extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(189, Short.MAX_VALUE))
         );
 
         pack();
@@ -346,6 +363,13 @@ public class PropertyPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbPropertyTypeActionPerformed
 
+    private void menuitemLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitemLogoutActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        LogIn l = new LogIn();
+        l.run();
+    }//GEN-LAST:event_menuitemLogoutActionPerformed
+
     public static void run() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -387,6 +411,8 @@ public class PropertyPage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbPropertyType;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCBPropertyStatus;
     private javax.swing.JLabel lblCBPropertyType;
@@ -402,6 +428,7 @@ public class PropertyPage extends javax.swing.JFrame {
     private javax.swing.JLabel lblPropertyType1;
     private javax.swing.JLabel lblPropertyTypeD;
     private javax.swing.JLabel lblPropertyTypeD1;
+    private javax.swing.JMenuItem menuitemLogout;
     private javax.swing.JLabel propertyPic1;
     private javax.swing.JLabel propertyPic2;
     // End of variables declaration//GEN-END:variables

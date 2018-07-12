@@ -1,12 +1,16 @@
 package javaassignment2;
 
 public class Property {
-    private int propertyId;
+    public int propertyId;
     private String propertyName;
     private String propertyType;
     private boolean propertyStatus;
     private double propertyPrice;
     private char propertyTenure;
+    
+    public Property(){
+        
+    }
     
     public Property(int id, String name, String type, boolean status, double price, char tenure){
         propertyId = id;
@@ -18,6 +22,6 @@ public class Property {
     }
     
     public void updateProperty(){
-        
+        //SQL statement to update existing properties
     }
 }

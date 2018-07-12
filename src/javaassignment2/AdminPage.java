@@ -13,9 +13,11 @@ public class AdminPage extends javax.swing.JFrame {
         menubarAdmin = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuitemEdit = new javax.swing.JMenuItem();
+        menuitemLogout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Admin");
+        setResizable(false);
 
         btnCreateReport.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnCreateReport.setText("Create Booking Report");
@@ -34,6 +36,14 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
         jMenu1.add(menuitemEdit);
+
+        menuitemLogout.setText("Logout");
+        menuitemLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuitemLogoutActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuitemLogout);
 
         menubarAdmin.add(jMenu1);
 
@@ -69,6 +79,13 @@ public class AdminPage extends javax.swing.JFrame {
         BookingReport r = new BookingReport();
         r.run();
     }//GEN-LAST:event_btnCreateReportActionPerformed
+
+    private void menuitemLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitemLogoutActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        LogIn l = new LogIn();
+        l.run();
+    }//GEN-LAST:event_menuitemLogoutActionPerformed
 
     public static void run() {
         /* Set the Nimbus look and feel */
@@ -107,6 +124,7 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar menubarAdmin;
     private javax.swing.JMenuItem menuitemEdit;
+    private javax.swing.JMenuItem menuitemLogout;
     // End of variables declaration//GEN-END:variables
 
 }
