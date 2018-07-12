@@ -22,12 +22,10 @@ public class User{
                     if(rs.getString("PASSWORD").equals(upass)){
                         return true;
                     }
-                    // Have some error message if username or password doesn't exist
-                }    
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
-            
         }
         return false;
     }
@@ -41,9 +39,8 @@ public class User{
             while(rs.next()) {
                 if (rs.getString("AGENT_NAME").equals(aname)){
                     if(rs.getString("AGENT_PASSWORD").equals(apass)){
-                       return true;
+                        return true;
                     }
-                    // Have some error message if username or password doesn't exist
                 }
             }
         } catch (SQLException ex) {
