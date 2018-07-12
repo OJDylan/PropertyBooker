@@ -1,15 +1,15 @@
 package javaassignment2;
 
 public class Booking extends Buyer{
-    public int bookingId;
+    public int appId;
     public int agentId;
     
-    public Booking(int bid, int aid){
-        bookingId = bid;
+    public Booking(int apid, int aid){
+        appId = apid;
         agentId = aid;
     }
     
-    public void confirmBooking(){
+    public void confirmAppointment(){
         //updates to SQL
         
     }

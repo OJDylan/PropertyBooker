@@ -121,13 +121,13 @@ public class AdminLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         User u = new User();
         
-        if(txtAdminName.getText().equals("") && txtAdminPass.getText().equals("")){
+        if(txtAdminName.getText().isEmpty() && txtAdminPass.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Admin Name and Password required.");
         }
-        else if(txtAdminName.getText().equals("")){
+        else if(txtAdminName.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Admin Name required.");
         }
-        else if(txtAdminPass.getText().equals("")){
+        else if(txtAdminPass.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Password required.");
         }
         else if(u.verifyAdminLogin(txtAdminName.getText(), txtAdminPass.getText()) == true){
@@ -140,6 +140,11 @@ public class AdminLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    //NOT WORKING - method to get name of agent
+    public String getName(){
+        return txtAdminName.getText();
+    }
+    
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
         txtAdminName.setText(null);
@@ -155,7 +160,6 @@ public class AdminLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         LogIn li = new LogIn();
         li.run();
-        
         dispose();
     }//GEN-LAST:event_menuItemCustomerActionPerformed
 
@@ -201,7 +205,7 @@ public class AdminLogin extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemCustomer;
     private javax.swing.JMenuItem menuItemExit;
     private javax.swing.JMenu menuSystem;
-    private javax.swing.JTextField txtAdminName;
+    public javax.swing.JTextField txtAdminName;
     private javax.swing.JPasswordField txtAdminPass;
     // End of variables declaration//GEN-END:variables
 }

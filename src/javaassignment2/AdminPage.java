@@ -20,7 +20,7 @@ public class AdminPage extends javax.swing.JFrame {
         setResizable(false);
 
         btnCreateReport.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnCreateReport.setText("Create Booking Report");
+        btnCreateReport.setText("Create Appointment Report");
         btnCreateReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateReportActionPerformed(evt);
@@ -76,7 +76,7 @@ public class AdminPage extends javax.swing.JFrame {
 
     private void btnCreateReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateReportActionPerformed
         // TODO add your handling code here:
-        BookingReport r = new BookingReport();
+        AppointmentReport r = new AppointmentReport();
         r.run();
     }//GEN-LAST:event_btnCreateReportActionPerformed
 
