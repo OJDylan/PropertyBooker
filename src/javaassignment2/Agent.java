@@ -6,8 +6,4 @@ public class Agent extends User{
         
     }
     
-    public void acceptBooking(){
-        
-    }
-    
 }

@@ -117,6 +117,12 @@ public class AdminLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+//  NOT WORKING - method to get name of agent
+    public String getName(){
+        String name = txtAdminName.getText();
+        return name;
+    }
+    
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         User u = new User();
@@ -139,11 +145,6 @@ public class AdminLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Wrong Admin Name or Password");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
-
-    //NOT WORKING - method to get name of agent
-    public String getName(){
-        return txtAdminName.getText();
-    }
     
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:

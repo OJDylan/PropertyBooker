@@ -1,12 +1,13 @@
 package javaassignment2;
 
+import java.sql.Time;
 import java.util.Date;
 
-public class BookingDetails extends Booking{
+public class AppointmentDetails extends Appointment{
     private Date bookingDate;
-    private Date bookingTime;
+    private Time bookingTime;
     
-    public BookingDetails(int bid, int aid) {
+    public AppointmentDetails(int bid, int aid) {
         super(bid, aid);
     }
     

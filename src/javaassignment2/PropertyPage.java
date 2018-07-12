@@ -83,10 +83,10 @@ public class PropertyPage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         cbPropertyType = new javax.swing.JComboBox<>();
         cbPropertyStatus = new javax.swing.JComboBox<>();
+        cbState = new javax.swing.JComboBox<>();
         lblCBPropertyType = new javax.swing.JLabel();
         lblCBPropertyStatus = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        lblCBState = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuitemLogout = new javax.swing.JMenuItem();
@@ -239,17 +239,17 @@ public class PropertyPage extends javax.swing.JFrame {
         cbPropertyStatus.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         cbPropertyStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Available", "Unavailable" }));
 
+        cbState.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kuala Lumpur", "Selangor", "Penang" }));
+
         lblCBPropertyType.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblCBPropertyType.setText("Type");
 
         lblCBPropertyStatus.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblCBPropertyStatus.setText("Status");
 
-        jComboBox1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kuala Lumpur", "Selangor", "Pulau Pinang" }));
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setText("State");
+        lblCBState.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblCBState.setText("State");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -258,8 +258,8 @@ public class PropertyPage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(cbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCBState))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbPropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,7 +268,7 @@ public class PropertyPage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbPropertyStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCBPropertyStatus))
-                .addContainerGap(492, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,12 +277,12 @@ public class PropertyPage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCBPropertyType)
                     .addComponent(lblCBPropertyStatus)
-                    .addComponent(jLabel1))
+                    .addComponent(lblCBState))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbPropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbPropertyStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -306,10 +306,10 @@ public class PropertyPage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(89, 89, 89)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(JPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(204, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -409,13 +409,13 @@ public class PropertyPage extends javax.swing.JFrame {
     private javax.swing.JButton btnContact2;
     private javax.swing.JComboBox<String> cbPropertyStatus;
     private javax.swing.JComboBox<String> cbPropertyType;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> cbState;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCBPropertyStatus;
     private javax.swing.JLabel lblCBPropertyType;
+    private javax.swing.JLabel lblCBState;
     private javax.swing.JLabel lblPropertyName;
     private javax.swing.JLabel lblPropertyName1;
     private javax.swing.JLabel lblPropertyNameD;

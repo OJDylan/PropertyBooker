@@ -8,10 +8,6 @@ public class Property {
     private double propertyPrice;
     private char propertyTenure;
     
-    public Property(){
-        
-    }
-    
     public Property(int id, String name, String type, boolean status, double price, char tenure){
         propertyId = id;
         propertyName = name;

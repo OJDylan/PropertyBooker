@@ -154,6 +154,8 @@ public class AppointmentReport extends javax.swing.JFrame {
 
     private void btnConfirmAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmAppActionPerformed
         // TODO add your handling code here:
+//        Appointment a = new Appointment(txt);
+//        a.confirmAppointment();
     }//GEN-LAST:event_btnConfirmAppActionPerformed
 
     public static void run() {
