@@ -102,6 +102,7 @@ public class PropertyPage extends javax.swing.JFrame {
         lblPropertyStatusD1.setText("<property status>");
 
         propertyPic2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaassignment2/p2.png"))); // NOI18N
+        propertyPic2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lblPropertyStatus1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblPropertyStatus1.setText("Availability");
@@ -119,6 +120,7 @@ public class PropertyPage extends javax.swing.JFrame {
         lblPropertyStatusD.setText("<property status>");
 
         propertyPic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaassignment2/p1.png"))); // NOI18N
+        propertyPic1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lblPropertyName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblPropertyName.setText("Property Name");
@@ -186,11 +188,9 @@ public class PropertyPage extends javax.swing.JFrame {
         JPanelLayout.setVerticalGroup(
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelLayout.createSequentialGroup()
-                        .addComponent(propertyPic1)
-                        .addGap(71, 71, 71))
+                .addContainerGap()
+                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(propertyPic1)
                     .addGroup(JPanelLayout.createSequentialGroup()
                         .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPropertyName)
@@ -204,8 +204,8 @@ public class PropertyPage extends javax.swing.JFrame {
                             .addComponent(lblPropertyStatus)
                             .addComponent(lblPropertyStatusD))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnContact1)
-                        .addGap(71, 71, 71)))
+                        .addComponent(btnContact1)))
+                .addGap(45, 45, 45)
                 .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(propertyPic2)
                     .addGroup(JPanelLayout.createSequentialGroup()
@@ -222,7 +222,7 @@ public class PropertyPage extends javax.swing.JFrame {
                             .addComponent(lblPropertyStatusD1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnContact2)))
-                .addGap(123, 123, 123))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         cbPropertyType.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -292,7 +292,7 @@ public class PropertyPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,8 +300,8 @@ public class PropertyPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addComponent(JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(212, Short.MAX_VALUE))
         );
 
         pack();
