@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Date;
 
 public class GUIAppointmentReport extends javax.swing.JFrame {
     private int counter = 1;
@@ -89,11 +90,11 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
         lblAgentName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblAgentName.setText("<agent name>");
 
-        txtTenantName.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtTenantName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        txtPropertyID.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtPropertyID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        txtPropertyName.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtPropertyName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         btnConfirmApp.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnConfirmApp.setText("Confirm");
@@ -102,6 +103,9 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
                 btnConfirmAppActionPerformed(evt);
             }
         });
+
+        JDateChooser.setDateFormatString("yyyy-MM-dd");
+        JDateChooser.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -174,10 +178,10 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
 
     private void btnConfirmAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmAppActionPerformed
         // TODO add your handling code here:
-
-//        AppointmentDetails a = new AppointmentDetails(counter, 1);
-//        a.confirmAppointment();
-//        counter++;
+        //Can't upload Date
+        AppointmentDetails a = new AppointmentDetails(counter, JDateChooser.getDate(), txtTenantName.getText(), Integer.parseInt(txtPropertyID.getText()), txtPropertyName.getText());
+        a.confirmAppointment();
+        counter++;
     }//GEN-LAST:event_btnConfirmAppActionPerformed
 
     public static void run() {

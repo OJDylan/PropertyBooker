@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class Agent extends User{
     public String agentId = null;
-    private String agentName = null;
+    public String agentName = null;
     
     //Constructor without parameters
     public Agent(){

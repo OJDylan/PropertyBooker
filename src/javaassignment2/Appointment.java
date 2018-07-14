@@ -2,9 +2,8 @@
 
 package javaassignment2;
 
-public class Appointment{
+public class Appointment extends Agent{
     public int appId;
-    public int agentId;
     
     public void viewAppointments(){
         
