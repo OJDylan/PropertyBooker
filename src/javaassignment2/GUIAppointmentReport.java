@@ -6,20 +6,22 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.Date;
+import javax.swing.JTextField;
 
 public class GUIAppointmentReport extends javax.swing.JFrame {
-    private int counter = 1;
+    int counter = 0;
     
     public GUIAppointmentReport() {
         initComponents();
         
-        lblAppointmentNum.setText(" " + counter);
+        //Counter cannot increase
+        lblAppointmentNum.setText("" + counter);
+        
         //Why is this fucking this null?
         try {
             Agent a = new Agent();
             Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + a.agentId;
+            String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + 1;
             ResultSet rs = s.executeQuery(sql);
             
             while(rs.next()){
@@ -178,10 +180,9 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
 
     private void btnConfirmAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmAppActionPerformed
         // TODO add your handling code here:
-        //Can't upload Date
-        AppointmentDetails a = new AppointmentDetails(counter, JDateChooser.getDate(), txtTenantName.getText(), Integer.parseInt(txtPropertyID.getText()), txtPropertyName.getText());
+        AppointmentDetails a = new AppointmentDetails(counter, ((JTextField)JDateChooser.getDateEditor().getUiComponent()).getText(), txtTenantName.getText(), Integer.parseInt(txtPropertyID.getText()), txtPropertyName.getText());
         a.confirmAppointment();
-        counter++;
+        dispose();
     }//GEN-LAST:event_btnConfirmAppActionPerformed
 
     public static void run() {

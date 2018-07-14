@@ -3,7 +3,7 @@
 package javaassignment2;
 
 public class Appointment extends Agent{
-    public int appId;
+    public int appId = 0;
     
     public void viewAppointments(){
         

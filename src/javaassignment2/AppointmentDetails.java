@@ -3,18 +3,17 @@ package javaassignment2;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class AppointmentDetails extends Appointment{
-    private Date appDate;
+    private String appDate;
     private String tenant;
     private int propertyId;
     private String propertyName;
     
-    public AppointmentDetails(int appid, Date date, String ten, int pid, String pname){
+    public AppointmentDetails(int appid, String date, String ten, int pid, String pname){
         appDate = date;
         tenant = ten;
         propertyId = pid;
@@ -30,11 +29,11 @@ public class AppointmentDetails extends Appointment{
             
             //Variable for SQL command
             String update ="INSERT INTO APPOINTMENT " + "VALUES(" +
-                    "'" + super.appId + "'" + "," +
-                    "'" + super.agentId + "'" + "," +
-                    "'" + super.agentId + "'" + "," +
+                    super.appId + "," +
+                    1 + "," +
+                    "'" + "Hej" + "'" + "," +
                     "'" + tenant + "'" + "," +
-                    "'" + propertyId + "'" + "," +
+                    propertyId + "," +
                     "'" + propertyName + "'" + "," +
                     "'" + appDate + "'" + ")";
             
@@ -44,8 +43,8 @@ public class AppointmentDetails extends Appointment{
             //Shows register successful message
             JOptionPane.showMessageDialog(null, "Report Created!");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "FAILED!");
             Logger.getLogger(AppointmentDetails.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "FAILED!");
         }
     }
     

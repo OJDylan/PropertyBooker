@@ -71,6 +71,8 @@ public class GUIAdminPage extends javax.swing.JFrame {
 
     private void menuitemEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitemEditActionPerformed
         // TODO add your handling code here:
+        Agent a = new Agent();
+        a.editProperty();
     }//GEN-LAST:event_menuitemEditActionPerformed
 
     private void btnCreateReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateReportActionPerformed
