@@ -133,6 +133,7 @@ public class GUIAdminLogin extends javax.swing.JFrame {
         else if(u.verifyAdminLogin(txtAdminName.getText(), txtAdminPass.getText()) == true){
             Agent a = new Agent(txtAdminName.getText());
             a.login();
+            a.display();
             dispose();
         }
         else{

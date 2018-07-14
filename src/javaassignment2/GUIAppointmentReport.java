@@ -12,18 +12,10 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
     
     public GUIAppointmentReport() {
         initComponents();
+        Agent a = new Agent();
         lblAppointmentNum.setText(" " + counter);
-        try {
-            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + 1;
-            ResultSet rs = s.executeQuery(sql);
-
-            if(rs.next()) {
-                lblAgentName.setText(rs.getString("AGENT_NAME"));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(GUILogIn.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //Why is this null?
+        lblAgentName.setText(a.agentName);
     }
 
     @SuppressWarnings("unchecked")
@@ -169,7 +161,8 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
 
     private void btnConfirmAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmAppActionPerformed
         // TODO add your handling code here:
-//        Appointment a = new Appointment(txt);
+
+//        Appointment a = new Appointment(counter, 1);
 //        a.confirmAppointment();
 //        counter++;
     }//GEN-LAST:event_btnConfirmAppActionPerformed

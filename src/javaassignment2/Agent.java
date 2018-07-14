@@ -1,20 +1,35 @@
 package javaassignment2;
 
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Agent extends User{
-    private int agentId;
-    private String agentName;
+    private String agentId;
+    public String agentName;
     
+    //Constructor without parameters
     public Agent(){
         
     }
     
-    public Agent(int id, String name){
-        agentId = id;
-        agentName = name;
-    }
-    
+    //Constructor with 1 parameter
     public Agent(String name){
         agentName = name;
+        try {
+            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+            String sql = "SELECT * FROM AGENT WHERE AGENT_NAME = " + "'" + agentName + "'";
+            ResultSet rs = s.executeQuery(sql);
+
+            while(rs.next()) {
+                agentId = rs.getString("AGENT_ID");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GUILogIn.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void login(){
@@ -29,6 +44,12 @@ public class Agent extends User{
      
     public void editProperty(){
         
+    }
+    
+    //Test
+    public void display(){
+        System.out.println(agentName);
+        System.out.println(agentId);
     }
     
 }

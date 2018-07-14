@@ -4,8 +4,12 @@ import java.sql.Time;
 import java.util.Date;
 
 public class AppointmentDetails extends Appointment{
-    private Date bookingDate;
-    private Time bookingTime;
+    private Date appDate;
+    private Time appTime;
+    private String tenant;
+    private int propertyId;
+    private String propertyName;
+    
     
     public AppointmentDetails(int bid, int aid) {
         super(bid, aid);
