@@ -1,14 +1,29 @@
 package javaassignment2;
 
-public class AppointmentReport extends javax.swing.JFrame {
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class GUIAppointmentReport extends javax.swing.JFrame {
     private int counter = 1;
     
-    public AppointmentReport() {
+    public GUIAppointmentReport() {
         initComponents();
-        
-        //NOT WORKING - Replace label with agent name
-        AdminLogin a = new AdminLogin();
-        lblAgentName.setText(a.getName());
+        lblAppointmentNum.setText(" " + counter);
+        try {
+            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+            String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + 1;
+            ResultSet rs = s.executeQuery(sql);
+
+            if(rs.next()) {
+                lblAgentName.setText(rs.getString("AGENT_NAME"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GUILogIn.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -21,8 +36,8 @@ public class AppointmentReport extends javax.swing.JFrame {
         lblPropertyName = new javax.swing.JLabel();
         lblBookingDate = new javax.swing.JLabel();
         lblBookingTime = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblAppointmentID = new javax.swing.JLabel();
+        lblAppointmentNum = new javax.swing.JLabel();
         lblAgentName = new javax.swing.JLabel();
         txtTenantName = new javax.swing.JTextField();
         txtPropertyID = new javax.swing.JTextField();
@@ -53,9 +68,9 @@ public class AppointmentReport extends javax.swing.JFrame {
         lblBookingTime.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblBookingTime.setText("Appointment Time");
 
-        jLabel7.setText("Appointment ID: ");
+        lblAppointmentID.setText("Appointment ID: ");
 
-        jLabel8.setText("<Appointment ID>");
+        lblAppointmentNum.setText("<Appointment ID>");
 
         lblAgentName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblAgentName.setText("<Agent Name>");
@@ -105,9 +120,9 @@ public class AppointmentReport extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jLabel7)
+                        .addComponent(lblAppointmentID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel8))
+                        .addComponent(lblAppointmentNum))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(259, 259, 259)
                         .addComponent(btnConfirmApp)))
@@ -118,8 +133,8 @@ public class AppointmentReport extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
+                    .addComponent(lblAppointmentID)
+                    .addComponent(lblAppointmentNum))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAgent)
@@ -156,6 +171,7 @@ public class AppointmentReport extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        Appointment a = new Appointment(txt);
 //        a.confirmAppointment();
+//        counter++;
     }//GEN-LAST:event_btnConfirmAppActionPerformed
 
     public static void run() {
@@ -172,31 +188,33 @@ public class AppointmentReport extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AppointmentReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIAppointmentReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AppointmentReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIAppointmentReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AppointmentReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIAppointmentReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AppointmentReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIAppointmentReport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AppointmentReport().setVisible(true);
+                new GUIAppointmentReport().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmApp;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblAgent;
     private javax.swing.JLabel lblAgentName;
+    private javax.swing.JLabel lblAppointmentID;
+    private javax.swing.JLabel lblAppointmentNum;
     private javax.swing.JLabel lblBookingDate;
     private javax.swing.JLabel lblBookingTime;
     private javax.swing.JLabel lblPropertyID;

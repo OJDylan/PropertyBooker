@@ -8,10 +8,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-public class PropertyPage extends javax.swing.JFrame {
+public class GUIPropertyPage extends javax.swing.JFrame {
     private int pCounter = 1;
     
-    public PropertyPage() {
+    public GUIPropertyPage() {
         initComponents();
         try {
             Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
@@ -32,7 +32,7 @@ public class PropertyPage extends javax.swing.JFrame {
                 pCounter++;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PropertyPage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         //Not optimal code but it works
@@ -55,7 +55,7 @@ public class PropertyPage extends javax.swing.JFrame {
                 pCounter++;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PropertyPage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -334,7 +334,7 @@ public class PropertyPage extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Contact " + rs.getString("AGENT_NAME") + " @ " + rs.getString("AGENT_CONTACT"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PropertyPage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnContact2ActionPerformed
 
@@ -349,7 +349,7 @@ public class PropertyPage extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Contact " + rs.getString("AGENT_NAME") + " @ " + rs.getString("AGENT_CONTACT"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PropertyPage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnContact1ActionPerformed
 
@@ -366,7 +366,7 @@ public class PropertyPage extends javax.swing.JFrame {
     private void menuitemLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitemLogoutActionPerformed
         // TODO add your handling code here:
         dispose();
-        LogIn l = new LogIn();
+        GUILogIn l = new GUILogIn();
         l.run();
     }//GEN-LAST:event_menuitemLogoutActionPerformed
 
@@ -384,21 +384,23 @@ public class PropertyPage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PropertyPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIPropertyPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PropertyPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIPropertyPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PropertyPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIPropertyPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PropertyPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIPropertyPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PropertyPage().setVisible(true);
+                new GUIPropertyPage().setVisible(true);
             }
         });
     }

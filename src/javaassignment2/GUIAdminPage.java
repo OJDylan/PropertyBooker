@@ -1,7 +1,7 @@
 package javaassignment2;
 
-public class AdminPage extends javax.swing.JFrame {
-    public AdminPage() {
+public class GUIAdminPage extends javax.swing.JFrame {
+    public GUIAdminPage() {
         initComponents();
     }
 
@@ -71,19 +71,18 @@ public class AdminPage extends javax.swing.JFrame {
 
     private void menuitemEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitemEditActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_menuitemEditActionPerformed
 
     private void btnCreateReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateReportActionPerformed
         // TODO add your handling code here:
-        AppointmentReport r = new AppointmentReport();
-        r.run();
+        Agent a = new Agent();
+        a.createReport();
     }//GEN-LAST:event_btnCreateReportActionPerformed
 
     private void menuitemLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitemLogoutActionPerformed
         // TODO add your handling code here:
         dispose();
-        LogIn l = new LogIn();
+        GUILogIn l = new GUILogIn();
         l.run();
     }//GEN-LAST:event_menuitemLogoutActionPerformed
 
@@ -101,20 +100,21 @@ public class AdminPage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIAdminPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIAdminPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIAdminPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIAdminPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminPage().setVisible(true);
+                new GUIAdminPage().setVisible(true);
             }
         });
     }

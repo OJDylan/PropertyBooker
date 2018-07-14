@@ -25,7 +25,7 @@ public class User{
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUILogIn.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
@@ -44,9 +44,8 @@ public class User{
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUILogIn.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
-    
 }

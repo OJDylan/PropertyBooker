@@ -2,8 +2,8 @@ package javaassignment2;
 
 import javax.swing.JOptionPane;
 
-public class AdminLogin extends javax.swing.JFrame {
-    public AdminLogin() {
+public class GUILogIn extends javax.swing.JFrame {
+    public GUILogIn() {
         initComponents();
     }
 
@@ -12,27 +12,27 @@ public class AdminLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         lblPassword = new javax.swing.JLabel();
-        lblAdminName = new javax.swing.JLabel();
+        lblUsername = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        txtAdminPass = new javax.swing.JPasswordField();
-        txtAdminName = new javax.swing.JTextField();
+        txtPass = new javax.swing.JPasswordField();
+        txtUsername = new javax.swing.JTextField();
+        btnRegister = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         menuSystem = new javax.swing.JMenu();
-        menuItemCustomer = new javax.swing.JMenuItem();
+        menuItemAdmin = new javax.swing.JMenuItem();
         menuItemExit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Property Search! (Admin)");
+        setTitle("Property Search!");
         setName("PropertySearch"); // NOI18N
         setResizable(false);
 
         lblPassword.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPassword.setText("Password");
 
-        lblAdminName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblAdminName.setText("Admin Name");
+        lblUsername.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblUsername.setText("Username");
 
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -48,19 +48,26 @@ public class AdminLogin extends javax.swing.JFrame {
             }
         });
 
-        txtAdminPass.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtPass.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        txtAdminName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txtUsername.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        btnRegister.setText("Register");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
 
         menuSystem.setText("System");
 
-        menuItemCustomer.setText("Switch to user");
-        menuItemCustomer.addActionListener(new java.awt.event.ActionListener() {
+        menuItemAdmin.setText("Switch to admin");
+        menuItemAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemCustomerActionPerformed(evt);
+                menuItemAdminActionPerformed(evt);
             }
         });
-        menuSystem.add(menuItemCustomer);
+        menuSystem.add(menuItemAdmin);
 
         menuItemExit.setText("Exit");
         menuItemExit.addActionListener(new java.awt.event.ActionListener() {
@@ -82,87 +89,91 @@ public class AdminLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(102, 102, 102)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAdminName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtAdminName)
-                            .addComponent(txtAdminPass, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)))
+                            .addComponent(txtUsername)
+                            .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(189, 189, 189)
+                        .addGap(134, 134, 134)
                         .addComponent(btnLogin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnRegister)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnCancel)))
-                .addGap(102, 102, 102))
+                .addGap(111, 111, 111))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAdminName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAdminName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAdminPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLogin)
-                    .addComponent(btnCancel))
+                    .addComponent(btnCancel)
+                    .addComponent(btnRegister))
                 .addGap(57, 57, 57))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-//  NOT WORKING - method to get name of agent
-    public String getName(){
-        String name = txtAdminName.getText();
-        return name;
-    }
-    
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         User u = new User();
         
-        if(txtAdminName.getText().isEmpty() && txtAdminPass.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Admin Name and Password required.");
+        if(txtUsername.getText().isEmpty() && txtPass.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Username and Password required.");
         }
-        else if(txtAdminName.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Admin Name required.");
+        else if(txtUsername.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Username required.");
         }
-        else if(txtAdminPass.getText().isEmpty()){
+        else if(txtPass.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Password required.");
         }
-        else if(u.verifyAdminLogin(txtAdminName.getText(), txtAdminPass.getText()) == true){
-            AdminPage a = new AdminPage();
-            a.run();
+        else if(u.verifyUserLogin(txtUsername.getText(), txtPass.getText()) == true){
+            GUIPropertyPage p = new GUIPropertyPage();
+            p.run();
             dispose();
         }
         else{
-            JOptionPane.showMessageDialog(null, "Wrong Admin Name or Password");
+            JOptionPane.showMessageDialog(null, "Wrong Username or Password");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
-    
+
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-        txtAdminName.setText(null);
-        txtAdminPass.setText(null);
+        txtUsername.setText(null);
+        txtPass.setText(null);
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        // TODO add your handling code here:
+        GUIRegister reg = new GUIRegister();
+        reg.run();
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void menuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemExitActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_menuItemExitActionPerformed
 
-    private void menuItemCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCustomerActionPerformed
+    private void menuItemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAdminActionPerformed
         // TODO add your handling code here:
-        LogIn li = new LogIn();
-        li.run();
+        GUIAdminLogin a = new GUIAdminLogin();
+        a.run();
+        
         dispose();
-    }//GEN-LAST:event_menuItemCustomerActionPerformed
+    }//GEN-LAST:event_menuItemAdminActionPerformed
 
     public void run() {
         /* Set the Nimbus look and feel */
@@ -178,13 +189,13 @@ public class AdminLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUILogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUILogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUILogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUILogIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -192,7 +203,7 @@ public class AdminLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminLogin().setVisible(true);
+                new GUILogIn().setVisible(true);
             }
         });
     }
@@ -200,13 +211,14 @@ public class AdminLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnLogin;
-    private javax.swing.JLabel lblAdminName;
+    private javax.swing.JButton btnRegister;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblUsername;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem menuItemCustomer;
+    private javax.swing.JMenuItem menuItemAdmin;
     private javax.swing.JMenuItem menuItemExit;
     private javax.swing.JMenu menuSystem;
-    public javax.swing.JTextField txtAdminName;
-    private javax.swing.JPasswordField txtAdminPass;
+    private javax.swing.JPasswordField txtPass;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

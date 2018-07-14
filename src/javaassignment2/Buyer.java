@@ -81,10 +81,11 @@ public class Buyer extends User{
     }
     
     public void login(){
-        LogIn li = new LogIn();
+        GUILogIn li = new GUILogIn();
         li.run();
     }
     
+    //WIP
     public void updateProfile(){
         
     }
