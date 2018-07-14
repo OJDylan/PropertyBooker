@@ -33,21 +33,35 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
         lblAgent = new javax.swing.JLabel();
         lblTenant = new javax.swing.JLabel();
         lblPropertyID = new javax.swing.JLabel();
         lblPropertyName = new javax.swing.JLabel();
         lblBookingDate = new javax.swing.JLabel();
-        lblBookingTime = new javax.swing.JLabel();
         lblAppointmentID = new javax.swing.JLabel();
         lblAppointmentNum = new javax.swing.JLabel();
         lblAgentName = new javax.swing.JLabel();
         txtTenantName = new javax.swing.JTextField();
         txtPropertyID = new javax.swing.JTextField();
         txtPropertyName = new javax.swing.JTextField();
-        txtBookDate = new javax.swing.JTextField();
-        txtBookTime = new javax.swing.JTextField();
         btnConfirmApp = new javax.swing.JButton();
+        JDateChooser = new com.toedter.calendar.JDateChooser();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Generate Report");
@@ -68,9 +82,6 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
         lblBookingDate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblBookingDate.setText("Appointment Date");
 
-        lblBookingTime.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblBookingTime.setText("Appointment Time");
-
         lblAppointmentID.setText("Appointment ID: ");
 
         lblAppointmentNum.setText("<Appointment ID>");
@@ -83,10 +94,6 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
         txtPropertyID.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         txtPropertyName.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        txtBookDate.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        txtBookTime.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         btnConfirmApp.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnConfirmApp.setText("Confirm");
@@ -101,24 +108,22 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(139, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblBookingDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPropertyName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPropertyID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTenant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblBookingDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblPropertyName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblPropertyID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblTenant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblBookingTime))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtBookTime)
-                    .addComponent(txtBookDate, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPropertyName, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPropertyID, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTenantName, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAgentName, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(141, 141, 141))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtPropertyName, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtPropertyID, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtTenantName, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblAgentName, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(98, 98, 98))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -139,32 +144,29 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
                     .addComponent(lblAppointmentID)
                     .addComponent(lblAppointmentNum))
                 .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAgent)
-                    .addComponent(lblAgentName))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTenant)
-                    .addComponent(txtTenantName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPropertyID)
-                    .addComponent(txtPropertyID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPropertyName)
-                    .addComponent(txtPropertyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBookingDate)
-                    .addComponent(txtBookDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBookingTime)
-                    .addComponent(txtBookTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAgent)
+                            .addComponent(lblAgentName))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblTenant)
+                            .addComponent(txtTenantName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPropertyID)
+                            .addComponent(txtPropertyID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPropertyName)
+                            .addComponent(txtPropertyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(lblBookingDate))
+                    .addComponent(JDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addComponent(btnConfirmApp)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
@@ -214,18 +216,19 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser JDateChooser;
     private javax.swing.JButton btnConfirmApp;
+    private com.toedter.calendar.JCalendar jCalendar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblAgent;
     private javax.swing.JLabel lblAgentName;
     private javax.swing.JLabel lblAppointmentID;
     private javax.swing.JLabel lblAppointmentNum;
     private javax.swing.JLabel lblBookingDate;
-    private javax.swing.JLabel lblBookingTime;
     private javax.swing.JLabel lblPropertyID;
     private javax.swing.JLabel lblPropertyName;
     private javax.swing.JLabel lblTenant;
-    private javax.swing.JTextField txtBookDate;
-    private javax.swing.JTextField txtBookTime;
     private javax.swing.JTextField txtPropertyID;
     private javax.swing.JTextField txtPropertyName;
     private javax.swing.JTextField txtTenantName;
