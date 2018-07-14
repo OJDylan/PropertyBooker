@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import javax.swing.JTextField;
 
 public class GUIAppointmentReport extends javax.swing.JFrame {
-    int counter = 0;
+    int counter = 1;
     
     public GUIAppointmentReport() {
         initComponents();
