@@ -131,8 +131,8 @@ public class GUIAdminLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Password required.");
         }
         else if(u.verifyAdminLogin(txtAdminName.getText(), txtAdminPass.getText()) == true){
-            GUIAdminPage a = new GUIAdminPage();
-            a.run();
+            Agent a = new Agent(txtAdminName.getText());
+            a.login();
             dispose();
         }
         else{

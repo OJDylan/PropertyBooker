@@ -30,4 +30,5 @@ public class Agent extends User{
     public void editProperty(){
         
     }
+    
 }
