@@ -12,10 +12,21 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
     
     public GUIAppointmentReport() {
         initComponents();
-        Agent a = new Agent();
+        
         lblAppointmentNum.setText(" " + counter);
-        //Why is this null?
-        lblAgentName.setText(a.agentName);
+        //Why is this fucking this null?
+        try {
+            Agent a = new Agent();
+            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+            String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + a.agentId;
+            ResultSet rs = s.executeQuery(sql);
+            
+            while(rs.next()){
+                lblAgentName.setText(rs.getString("AGENT_NAME"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GUIAppointmentReport.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -65,7 +76,7 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
         lblAppointmentNum.setText("<Appointment ID>");
 
         lblAgentName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        lblAgentName.setText("<Agent Name>");
+        lblAgentName.setText("<agent name>");
 
         txtTenantName.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
@@ -162,7 +173,7 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
     private void btnConfirmAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmAppActionPerformed
         // TODO add your handling code here:
 
-//        Appointment a = new Appointment(counter, 1);
+//        AppointmentDetails a = new AppointmentDetails(counter, 1);
 //        a.confirmAppointment();
 //        counter++;
     }//GEN-LAST:event_btnConfirmAppActionPerformed

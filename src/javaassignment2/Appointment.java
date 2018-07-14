@@ -2,19 +2,11 @@
 
 package javaassignment2;
 
-public class Appointment extends Buyer{
+public class Appointment{
     public int appId;
     public int agentId;
     
-    public Appointment(int apid, int aid){
-        //Get from counter
-        appId = apid;
-        //Get from database?
-        agentId = aid;
-    }
-    
-    public void confirmAppointment(){
-        //updates to SQL
+    public void viewAppointments(){
         
     }
     

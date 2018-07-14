@@ -7,7 +7,7 @@ import javax.swing.*;
 public class Buyer extends User{
     public String buyerFName;
     public String buyerLName;
-    private String hpNum; 
+    private String hpNum;
     private String email;
     
     //Constructor to call class

@@ -8,8 +8,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Agent extends User{
-    private String agentId;
-    public String agentName;
+    public String agentId = null;
+    private String agentName = null;
     
     //Constructor without parameters
     public Agent(){

@@ -10,13 +10,19 @@ public class AppointmentDetails extends Appointment{
     private int propertyId;
     private String propertyName;
     
-    
-    public AppointmentDetails(int bid, int aid) {
-        super(bid, aid);
+    public AppointmentDetails(int appid, int agentid,Date date, Time time, String ten, int pid, String pname){
+        appDate = date; 
+        appTime = time; 
+        tenant = ten;
+        propertyId = pid;
+        propertyName = pname;
+        super.agentId = agentid;
+        super.appId = appid;
     }
     
-    public void changeDate(){
-        //Updates the date of appointment ONLY
+    public void confirmAppointment(){
+        //Updates to SQL database
+        
     }
     
 }
