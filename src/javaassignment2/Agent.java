@@ -28,7 +28,7 @@ public class Agent extends User{
     }
      
     public void editProperty(){
-        JOptionPane.showMessageDialog(null, agentName);
+        JOptionPane.showMessageDialog(null, "Work in progress");
     }
     
 }
