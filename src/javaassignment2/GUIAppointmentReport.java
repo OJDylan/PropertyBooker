@@ -9,17 +9,20 @@ import java.util.logging.Logger;
 import javax.swing.JTextField;
 
 public class GUIAppointmentReport extends javax.swing.JFrame {
-    int counter = 1;
+    private int counter = 1;
     
     public GUIAppointmentReport() {
         initComponents();
+        setName();
         
         //Counter cannot increase
         lblAppointmentNum.setText("" + counter);
-        
+    }
+    
+    public void setName(){
         //Why is this fucking this null?
+        Agent a = new Agent();
         try {
-            Agent a = new Agent();
             Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
             String sql = "SELECT * FROM AGENT WHERE AGENT_NAME = " + "'" + a.agentName + "'";
             ResultSet rs = s.executeQuery(sql);

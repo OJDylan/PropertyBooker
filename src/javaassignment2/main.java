@@ -8,13 +8,11 @@ public class main {
 //        PropertyPage pg = new PropertyPage();
 //        pg.run();
 
-        Agent a = new Agent();
+//        Agent a = new Agent();
 //        a.login();
 
-//        GUIAdminLogin al = new GUIAdminLogin();
-//        al.run();
-
-        a.editProperty();
+        GUIAdminLogin al = new GUIAdminLogin();
+        al.run();
 
     }
 

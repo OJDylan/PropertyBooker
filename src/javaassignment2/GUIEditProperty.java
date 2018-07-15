@@ -179,6 +179,7 @@ public class GUIEditProperty extends javax.swing.JFrame {
 
     private void menuItemLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLogoutActionPerformed
         // TODO add your handling code here:
+        dispose();
         Buyer b = new Buyer();
         b.login();
     }//GEN-LAST:event_menuItemLogoutActionPerformed

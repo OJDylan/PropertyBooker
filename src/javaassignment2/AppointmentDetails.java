@@ -23,6 +23,7 @@ public class AppointmentDetails extends Appointment{
     
     //Updates to SQL database
     public void confirmAppointment(){
+        Agent a = new Agent();
         try {
             //Create statement to connect to the database
             Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
@@ -30,8 +31,7 @@ public class AppointmentDetails extends Appointment{
             //Variable for SQL command
             String update ="INSERT INTO APPOINTMENT " + "VALUES(" +
                     super.appId + "," +
-                    1 + "," +
-                    "'" + "John" + "'" + "," +
+                    "'" + a.agentName + "'" + "," +
                     "'" + tenant + "'" + "," +
                     propertyId + "," +
                     "'" + propertyName + "'" + "," +

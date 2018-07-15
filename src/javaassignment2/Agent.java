@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 public class Agent extends User{
     public String agentId;
-    public String agentName;
+    public static String agentName;
     
     //Constructor to call only
     public Agent(){
@@ -14,10 +14,10 @@ public class Agent extends User{
     //Constructor with 1 parameter
     public Agent(String name){
         agentName = name;
+        
     }
     
     public void login(){
-        JOptionPane.showMessageDialog(null, agentName);
         GUIAdminPage ap = new GUIAdminPage();
         ap.run();
     }
@@ -30,6 +30,7 @@ public class Agent extends User{
     public void editProperty(){
         GUIEditProperty ep = new GUIEditProperty();
         ep.run();
+        
     }
     
 }
