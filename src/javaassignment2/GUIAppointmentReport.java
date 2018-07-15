@@ -21,7 +21,7 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
         try {
             Agent a = new Agent();
             Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + 1;
+            String sql = "SELECT * FROM AGENT WHERE AGENT_NAME = " + "'" + a.agentName + "'";
             ResultSet rs = s.executeQuery(sql);
             
             while(rs.next()){

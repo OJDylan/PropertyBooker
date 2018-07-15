@@ -103,8 +103,8 @@ public class GUIAdminPage extends javax.swing.JFrame {
 
     private void btnViewAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAppointmentsActionPerformed
         // TODO add your handling code here:
-        GUIViewAppointments va = new GUIViewAppointments();
-        va.run();
+        Appointment a = new Appointment();
+        a.viewAppointments();
     }//GEN-LAST:event_btnViewAppointmentsActionPerformed
 
     public static void run() {

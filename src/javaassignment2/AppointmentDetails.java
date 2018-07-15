@@ -31,7 +31,7 @@ public class AppointmentDetails extends Appointment{
             String update ="INSERT INTO APPOINTMENT " + "VALUES(" +
                     super.appId + "," +
                     1 + "," +
-                    "'" + "Hej" + "'" + "," +
+                    "'" + "John" + "'" + "," +
                     "'" + tenant + "'" + "," +
                     propertyId + "," +
                     "'" + propertyName + "'" + "," +

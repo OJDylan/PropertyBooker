@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 public class GUIAdminLogin extends javax.swing.JFrame {
     public GUIAdminLogin() {
         initComponents();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -120,7 +121,7 @@ public class GUIAdminLogin extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         User u = new User();
-        Agent a = new Agent("HEJ!");
+        Agent a = new Agent(txtAdminName.getText());
         
         if(txtAdminName.getText().isEmpty() && txtAdminPass.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Admin Name and Password required.");

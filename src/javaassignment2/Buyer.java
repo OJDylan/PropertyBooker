@@ -85,8 +85,4 @@ public class Buyer extends User{
         li.run();
     }
     
-    //WIP
-    public void updateProfile(){
-        
-    }
 }
