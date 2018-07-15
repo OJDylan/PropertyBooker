@@ -137,7 +137,7 @@ public class GUIAdminLogin extends javax.swing.JFrame {
             dispose();
         }
         else{
-            JOptionPane.showMessageDialog(null, "Wrong Admin Name or Password");
+            JOptionPane.showMessageDialog(null, "Invalid Admin Name or Password");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
     

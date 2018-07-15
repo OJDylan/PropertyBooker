@@ -84,6 +84,7 @@ public class GUIAdminPage extends javax.swing.JFrame {
 
     private void menuitemEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitemEditActionPerformed
         // TODO add your handling code here:
+        dispose();
         Agent a = new Agent();
         a.editProperty();
     }//GEN-LAST:event_menuitemEditActionPerformed

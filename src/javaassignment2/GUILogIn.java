@@ -146,7 +146,7 @@ public class GUILogIn extends javax.swing.JFrame {
             dispose();
         }
         else{
-            JOptionPane.showMessageDialog(null, "Wrong Username or Password");
+            JOptionPane.showMessageDialog(null, "Invalid Username or Password");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
