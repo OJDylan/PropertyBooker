@@ -63,6 +63,14 @@ public class GUIPropertyPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        cbPropertyType = new javax.swing.JComboBox<>();
+        cbPropertyStatus = new javax.swing.JComboBox<>();
+        cbState = new javax.swing.JComboBox<>();
+        lblCBPropertyType = new javax.swing.JLabel();
+        lblCBPropertyStatus = new javax.swing.JLabel();
+        lblCBState = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         JPanel = new javax.swing.JPanel();
         lblPropertyNameD1 = new javax.swing.JLabel();
         lblPropertyTypeD1 = new javax.swing.JLabel();
@@ -80,13 +88,6 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         lblPropertyNameD = new javax.swing.JLabel();
         btnContact2 = new javax.swing.JButton();
         btnContact1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        cbPropertyType = new javax.swing.JComboBox<>();
-        cbPropertyStatus = new javax.swing.JComboBox<>();
-        cbState = new javax.swing.JComboBox<>();
-        lblCBPropertyType = new javax.swing.JLabel();
-        lblCBPropertyStatus = new javax.swing.JLabel();
-        lblCBState = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuitemLogout = new javax.swing.JMenuItem();
@@ -94,6 +95,67 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Property Search!");
         setResizable(false);
+
+        cbPropertyType.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cbPropertyType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Apartment", "Condominium", "Terrace", "Semi-Detachable", "Bungalow" }));
+        cbPropertyType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPropertyTypeActionPerformed(evt);
+            }
+        });
+
+        cbPropertyStatus.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cbPropertyStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Available", "Unavailable" }));
+
+        cbState.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kuala Lumpur", "Selangor", "Penang" }));
+
+        lblCBPropertyType.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblCBPropertyType.setText("Type");
+
+        lblCBPropertyStatus.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblCBPropertyStatus.setText("Status");
+
+        lblCBState.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblCBState.setText("State");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCBState))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbPropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCBPropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbPropertyStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCBPropertyStatus))
+                .addContainerGap(294, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCBPropertyType)
+                    .addComponent(lblCBPropertyStatus)
+                    .addComponent(lblCBState))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbPropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbPropertyStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         lblPropertyNameD1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblPropertyNameD1.setText("<property name>");
@@ -186,7 +248,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
                             .addComponent(lblPropertyNameD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblPropertyTypeD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblPropertyStatusD))))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
         JPanelLayout.setVerticalGroup(
             JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,66 +287,10 @@ public class GUIPropertyPage extends javax.swing.JFrame {
                             .addComponent(lblPropertyStatusD1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnContact2)))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(445, Short.MAX_VALUE))
         );
 
-        cbPropertyType.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cbPropertyType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Apartment", "Condominium", "Terrace", "Semi-Detachable", "Bungalow" }));
-        cbPropertyType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbPropertyTypeActionPerformed(evt);
-            }
-        });
-
-        cbPropertyStatus.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cbPropertyStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Available", "Unavailable" }));
-
-        cbState.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kuala Lumpur", "Selangor", "Penang" }));
-
-        lblCBPropertyType.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblCBPropertyType.setText("Type");
-
-        lblCBPropertyStatus.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblCBPropertyStatus.setText("Status");
-
-        lblCBState.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblCBState.setText("State");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCBState))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbPropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCBPropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbPropertyStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCBPropertyStatus))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCBPropertyType)
-                    .addComponent(lblCBPropertyStatus)
-                    .addComponent(lblCBState))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbPropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbPropertyStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        jScrollPane1.setViewportView(JPanel);
 
         jMenu1.setText("System");
 
@@ -306,10 +312,10 @@ public class GUIPropertyPage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(89, 89, 89)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(JPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,41 +323,12 @@ public class GUIPropertyPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnContact2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContact2ActionPerformed
-        try {
-            // TODO add your handling code here:
-            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + 1;
-            ResultSet rs = s.executeQuery(sql);
-            while(rs.next()){
-                JOptionPane.showMessageDialog(null, "Contact " + rs.getString("AGENT_NAME") + " @ " + rs.getString("AGENT_CONTACT"));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnContact2ActionPerformed
-
-    private void btnContact1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContact1ActionPerformed
-        // TODO add your handling code here:
-        try {
-            // TODO add your handling code here:
-            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + 2;
-            ResultSet rs = s.executeQuery(sql);
-            while(rs.next()){
-                JOptionPane.showMessageDialog(null, "Contact " + rs.getString("AGENT_NAME") + " @ " + rs.getString("AGENT_CONTACT"));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnContact1ActionPerformed
 
     private void cbPropertyTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPropertyTypeActionPerformed
         // TODO add your handling code here:
@@ -369,6 +346,35 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         GUILogIn l = new GUILogIn();
         l.run();
     }//GEN-LAST:event_menuitemLogoutActionPerformed
+
+    private void btnContact1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContact1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+            String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + 2;
+            ResultSet rs = s.executeQuery(sql);
+            while(rs.next()){
+                JOptionPane.showMessageDialog(null, "Contact " + rs.getString("AGENT_NAME") + " @ " + rs.getString("AGENT_CONTACT"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnContact1ActionPerformed
+
+    private void btnContact2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContact2ActionPerformed
+        try {
+            // TODO add your handling code here:
+            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+            String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + 1;
+            ResultSet rs = s.executeQuery(sql);
+            while(rs.next()){
+                JOptionPane.showMessageDialog(null, "Contact " + rs.getString("AGENT_NAME") + " @ " + rs.getString("AGENT_CONTACT"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnContact2ActionPerformed
 
     public static void run() {
         /* Set the Nimbus look and feel */
@@ -415,6 +421,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCBPropertyStatus;
     private javax.swing.JLabel lblCBPropertyType;
     private javax.swing.JLabel lblCBState;
