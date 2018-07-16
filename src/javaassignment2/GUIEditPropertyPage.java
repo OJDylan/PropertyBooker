@@ -139,8 +139,9 @@ public class GUIEditPropertyPage extends javax.swing.JFrame {
 
     private void btnConfirmUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmUpdateActionPerformed
         // TODO add your handling code here:
-        Property p = new Property(txtPName.getText(), txtPPrice.getText(), setStatus());
+        Property p = new Property(number, txtPName.getText(), txtPPrice.getText(), setStatus());
         p.updateProperty();
+        dispose();
     }//GEN-LAST:event_btnConfirmUpdateActionPerformed
 
     public static void run() {

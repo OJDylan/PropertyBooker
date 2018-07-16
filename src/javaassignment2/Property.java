@@ -24,7 +24,8 @@ public class Property {
         propertyTenure = tenure;
     }
     
-    public Property(String name, String price, boolean status){
+    public Property(int id, String name, String price, boolean status){
+        propertyId = id;
         propertyName = name;
         propertyStatus = status;
         propertyPrice = price;
@@ -32,27 +33,27 @@ public class Property {
     
     public void updateProperty(){
         //SQL statement to update existing properties
-//        try {
-//            //Create statement to connect to the database
-//            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-//            
-//            //Variable for SQL command
-//            String update ="INSERT INTO BUYER " + "VALUES(" +
-//                    "'" + super.userName + "'" + "," +
-//                    "'" + super.userPass + "'" + "," +
-//                    "'" + buyerFName + "'" + "," +
-//                    "'" + buyerLName + "'" + "," +
-//                    "'" + hpNum + "'" + "," +
-//                    "'" + email + "'" + ")";
-//            
-//            //Executes sql satement
-//            s.executeUpdate(update);
-//            
-//            //Shows register successful message
-//            JOptionPane.showMessageDialog(null, "Account successfully created!");
-//        } catch (SQLException ex) {
-//            Logger.getLogger(Property.class.getName()).log(Level.SEVERE, null, ex);
-//        }    
+        System.out.println(propertyId);
+        try {
+            //Create statement to connect to the database
+            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+            
+            //Variable for SQL command
+            String update ="UPDATE PROPERTY " + "SET " +
+                           "PROPERTY_NAME = " + "'" + propertyName + "'" + "," +
+                           "PROPERTY_PRICE = " + Double.parseDouble(propertyPrice) + "," +
+                           "PROPERTY_STATUS = " + propertyStatus + " " +
+                           "WHERE PROPERTY_ID = " + propertyId;
+            
+            //Executes sql satement
+            s.executeUpdate(update);
+            
+            //Shows register successful message
+            JOptionPane.showMessageDialog(null, "Update successful!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Update Failed");
+            Logger.getLogger(Property.class.getName()).log(Level.SEVERE, null, ex);
+        }    
     }
     
 }
