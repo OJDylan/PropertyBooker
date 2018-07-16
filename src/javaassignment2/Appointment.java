@@ -6,7 +6,8 @@ public class Appointment extends Agent{
     public int appId = 0;
     
     public void viewAppointments(){
-        GUIViewAppointments va = new GUIViewAppointments();
+        Agent a = new Agent();
+        GUIViewAppointments va = new GUIViewAppointments(a.agentName);
         va.run();
     }
     

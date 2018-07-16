@@ -50,6 +50,7 @@ public class User{
     }
     
     public void login(){
-        
+        GUIUserLogin u =  new GUIUserLogin();
+        u.run();
     }
 }

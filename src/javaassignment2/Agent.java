@@ -15,6 +15,7 @@ public class Agent extends User{
         
     }
     
+    @Override
     public void login(){
         GUIAdminPage ap = new GUIAdminPage();
         ap.run();

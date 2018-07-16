@@ -80,6 +80,7 @@ public class Buyer extends User{
         }
     }
     
+    @Override
     public void login(){
         GUILogIn li = new GUILogIn();
         li.run();
