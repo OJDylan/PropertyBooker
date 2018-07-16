@@ -48,11 +48,15 @@ public class GUIEditPropertyPage extends javax.swing.JFrame {
     }
     
     private boolean setStatus(){
-        if(cbStatus.equals("Available")){
-            return true;
-        } else{
-            return false;
+        boolean a = true;
+        Object selected = cbStatus.getSelectedItem();
+        if(selected.toString().equals("Available")){
+            a = true;
         }
+        else if(selected.toString().equals("Unavailable")){
+            a = false;
+        }
+        return a;
     }
 
     @SuppressWarnings("unchecked")

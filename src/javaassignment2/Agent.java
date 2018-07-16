@@ -1,7 +1,5 @@
 package javaassignment2;
 
-import javax.swing.JOptionPane;
-
 public class Agent extends User{
     public String agentId;
     public static String agentName;
