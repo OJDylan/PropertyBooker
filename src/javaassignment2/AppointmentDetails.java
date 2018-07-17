@@ -13,12 +13,12 @@ public class AppointmentDetails extends Appointment{
     private int propertyId;
     private String propertyName;
     
-    public AppointmentDetails(int appid, String date, String ten, int pid, String pname){
+    public AppointmentDetails(String appid, String date, String ten, int pid, String pname){
         appDate = date;
         tenant = ten;
         propertyId = pid;
         propertyName = pname;
-        super.appId = appid;
+        super.appId = Integer.parseInt(appid);
     }
     
     //Updates to SQL database

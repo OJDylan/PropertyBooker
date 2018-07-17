@@ -9,14 +9,9 @@ import java.util.logging.Logger;
 import javax.swing.JTextField;
 
 public class GUIAppointmentReport extends javax.swing.JFrame {
-    private int counter = 1;
-    
     public GUIAppointmentReport() {
         initComponents();
         setName();
-        
-        //Counter cannot increase
-        lblAppointmentNum.setText("" + counter);
     }
     
     public void setName(){
@@ -48,13 +43,13 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
         lblPropertyName = new javax.swing.JLabel();
         lblBookingDate = new javax.swing.JLabel();
         lblAppointmentID = new javax.swing.JLabel();
-        lblAppointmentNum = new javax.swing.JLabel();
         lblAgentName = new javax.swing.JLabel();
         txtTenantName = new javax.swing.JTextField();
         txtPropertyID = new javax.swing.JTextField();
         txtPropertyName = new javax.swing.JTextField();
         btnConfirmApp = new javax.swing.JButton();
         JDateChooser = new com.toedter.calendar.JDateChooser();
+        txtAppID = new javax.swing.JTextField();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -89,8 +84,6 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
         lblBookingDate.setText("Appointment Date");
 
         lblAppointmentID.setText("Appointment ID: ");
-
-        lblAppointmentNum.setText("<Appointment ID>");
 
         lblAgentName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblAgentName.setText("<agent name>");
@@ -139,7 +132,7 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(lblAppointmentID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblAppointmentNum))
+                        .addComponent(txtAppID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(259, 259, 259)
                         .addComponent(btnConfirmApp)))
@@ -151,8 +144,8 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAppointmentID)
-                    .addComponent(lblAppointmentNum))
-                .addGap(38, 38, 38)
+                    .addComponent(txtAppID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -175,7 +168,7 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
                     .addComponent(JDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addComponent(btnConfirmApp)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
@@ -183,7 +176,7 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
 
     private void btnConfirmAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmAppActionPerformed
         // TODO add your handling code here:
-        AppointmentDetails a = new AppointmentDetails(counter, ((JTextField)JDateChooser.getDateEditor().getUiComponent()).getText(), txtTenantName.getText(), Integer.parseInt(txtPropertyID.getText()), txtPropertyName.getText());
+        AppointmentDetails a = new AppointmentDetails(txtAppID.getText(), ((JTextField)JDateChooser.getDateEditor().getUiComponent()).getText(), txtTenantName.getText(), Integer.parseInt(txtPropertyID.getText()), txtPropertyName.getText());
         a.confirmAppointment();
         dispose();
     }//GEN-LAST:event_btnConfirmAppActionPerformed
@@ -232,11 +225,11 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
     private javax.swing.JLabel lblAgent;
     private javax.swing.JLabel lblAgentName;
     private javax.swing.JLabel lblAppointmentID;
-    private javax.swing.JLabel lblAppointmentNum;
     private javax.swing.JLabel lblBookingDate;
     private javax.swing.JLabel lblPropertyID;
     private javax.swing.JLabel lblPropertyName;
     private javax.swing.JLabel lblTenant;
+    private javax.swing.JTextField txtAppID;
     private javax.swing.JTextField txtPropertyID;
     private javax.swing.JTextField txtPropertyName;
     private javax.swing.JTextField txtTenantName;

@@ -9,19 +9,15 @@ import java.util.logging.Logger;
 import net.proteanit.sql.DbUtils;
 
 public class GUIViewAppointments extends javax.swing.JFrame {
-    private static String aname;
-    
-    public GUIViewAppointments(String name) {
+    public GUIViewAppointments() {
         initComponents();
-        aname = name;
-        UpdateTable(aname);
+        UpdateTable();
     }
     
-    private void UpdateTable(String name){
+    private void UpdateTable(){
         try {
             Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql ="SELECT * FROM APPOINTMENT " + 
-                        "WHERE AGENT_NAME = " + "'" + name + "'";
+            String sql ="SELECT * FROM APPOINTMENT";
             ResultSet rs = s.executeQuery(sql);
             tblAppointment.setModel(DbUtils.resultSetToTableModel(rs));
             
@@ -103,7 +99,7 @@ public class GUIViewAppointments extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUIViewAppointments(aname).setVisible(true);
+                new GUIViewAppointments().setVisible(true);
             }
         });
     }
