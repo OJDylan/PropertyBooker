@@ -333,7 +333,7 @@
             <Component class="javax.swing.JLabel" name="propertyPic2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/javaassignment2/p2.png"/>
+                  <Image iconType="3" name="/javaassignment2/GUIForms/p2.png"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -385,7 +385,7 @@
             <Component class="javax.swing.JLabel" name="propertyPic1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/javaassignment2/p1.png"/>
+                  <Image iconType="3" name="/javaassignment2/GUIForms/p1.png"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">

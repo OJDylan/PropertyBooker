@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 public class GUIPropertyPage extends javax.swing.JFrame {
     private int pCounter = 1;
@@ -171,7 +170,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         lblPropertyStatusD1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblPropertyStatusD1.setText("<property status>");
 
-        propertyPic2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaassignment2/p2.png"))); // NOI18N
+        propertyPic2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaassignment2/GUIForms/p2.png"))); // NOI18N
         propertyPic2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lblPropertyStatus1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -189,7 +188,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         lblPropertyStatusD.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblPropertyStatusD.setText("<property status>");
 
-        propertyPic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaassignment2/p1.png"))); // NOI18N
+        propertyPic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaassignment2/GUIForms/p1.png"))); // NOI18N
         propertyPic1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lblPropertyName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -354,31 +353,15 @@ public class GUIPropertyPage extends javax.swing.JFrame {
 
     private void btnContact1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContact1ActionPerformed
         // TODO add your handling code here:
-        try {
-            // TODO add your handling code here:
-            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + 2;
-            ResultSet rs = s.executeQuery(sql);
-            while(rs.next()){
-                JOptionPane.showMessageDialog(null, "Contact " + rs.getString("AGENT_NAME") + " @ " + rs.getString("AGENT_CONTACT"));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        number = 1;
+        GUIPropertyDetails pd = new GUIPropertyDetails(number);
+        pd.run();
     }//GEN-LAST:event_btnContact1ActionPerformed
 
     private void btnContact2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContact2ActionPerformed
-        try {
-            // TODO add your handling code here:
-            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + 1;
-            ResultSet rs = s.executeQuery(sql);
-            while(rs.next()){
-                JOptionPane.showMessageDialog(null, "Contact " + rs.getString("AGENT_NAME") + " @ " + rs.getString("AGENT_CONTACT"));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        number = 2;
+        GUIPropertyDetails pd = new GUIPropertyDetails(number);
+        pd.run();
     }//GEN-LAST:event_btnContact2ActionPerformed
 
     public static void run() {

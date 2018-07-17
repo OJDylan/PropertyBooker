@@ -10,7 +10,7 @@ import javaassignment2.Buyer;
 import javax.swing.JOptionPane;
 
 public class GUIEditProperty extends javax.swing.JFrame {
-    public int number;
+    public int number = 0;
     
     public GUIEditProperty() {
         initComponents();

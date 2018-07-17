@@ -35,9 +35,11 @@
                           <Component id="lblAgentName" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblContact" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblPropertyPrice" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAgentEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
                           <Component id="lblPrice" min="-2" max="-2" attributes="0"/>
                           <Component id="lblNumber" min="-2" max="-2" attributes="0"/>
                           <Component id="lblName" min="-2" max="-2" attributes="0"/>
@@ -51,7 +53,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+              <EmptySpace pref="54" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblAgentName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -66,7 +68,12 @@
                   <Component id="lblPropertyPrice" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblPrice" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="66" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAgentEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Component id="lblMapInfo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblMap" min="-2" pref="285" max="-2" attributes="0"/>
@@ -77,9 +84,6 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblMap">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;map picture&gt;"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblAgentName">
       <Properties>
@@ -135,6 +139,22 @@
           <Font name="Dialog" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;price&gt;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAgentEmail">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Email"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblEmail">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&lt;email&gt;"/>
       </Properties>
     </Component>
   </SubComponents>
