@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class GUIAppointmentReport extends javax.swing.JFrame {
@@ -39,13 +40,11 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
         jCalendar1 = new com.toedter.calendar.JCalendar();
         lblAgent = new javax.swing.JLabel();
         lblTenant = new javax.swing.JLabel();
-        lblPropertyID = new javax.swing.JLabel();
         lblPropertyName = new javax.swing.JLabel();
         lblBookingDate = new javax.swing.JLabel();
         lblAppointmentID = new javax.swing.JLabel();
         lblAgentName = new javax.swing.JLabel();
         txtTenantName = new javax.swing.JTextField();
-        txtPropertyID = new javax.swing.JTextField();
         txtPropertyName = new javax.swing.JTextField();
         btnConfirmApp = new javax.swing.JButton();
         JDateChooser = new com.toedter.calendar.JDateChooser();
@@ -74,9 +73,6 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
         lblTenant.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblTenant.setText("Tenant");
 
-        lblPropertyID.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblPropertyID.setText("Property ID");
-
         lblPropertyName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblPropertyName.setText("Property Name");
 
@@ -89,8 +85,6 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
         lblAgentName.setText("<agent name>");
 
         txtTenantName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-
-        txtPropertyID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         txtPropertyName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
@@ -111,20 +105,24 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblBookingDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblPropertyName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblPropertyID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblTenant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtPropertyName, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtPropertyID, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtTenantName, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblAgentName, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(JDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblBookingDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPropertyName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPropertyName, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblTenant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtTenantName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAgentName, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47)))
                 .addGap(98, 98, 98))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,21 +143,17 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAppointmentID)
                     .addComponent(txtAppID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(79, 79, 79)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAgent)
+                    .addComponent(lblAgentName))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTenant)
+                    .addComponent(txtTenantName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAgent)
-                            .addComponent(lblAgentName))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblTenant)
-                            .addComponent(txtTenantName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPropertyID)
-                            .addComponent(txtPropertyID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPropertyName)
                             .addComponent(txtPropertyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -176,7 +170,8 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
 
     private void btnConfirmAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmAppActionPerformed
         // TODO add your handling code here:
-        AppointmentDetails a = new AppointmentDetails(txtAppID.getText(), ((JTextField)JDateChooser.getDateEditor().getUiComponent()).getText(), txtTenantName.getText(), Integer.parseInt(txtPropertyID.getText()), txtPropertyName.getText());
+        AppointmentDetails a = new AppointmentDetails(Integer.parseInt(txtAppID.getText()), ((JTextField)JDateChooser.getDateEditor().getUiComponent()).getText(), txtTenantName.getText(), txtPropertyName.getText());
+        a.getID();
         a.confirmAppointment();
         dispose();
     }//GEN-LAST:event_btnConfirmAppActionPerformed
@@ -226,11 +221,9 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
     private javax.swing.JLabel lblAgentName;
     private javax.swing.JLabel lblAppointmentID;
     private javax.swing.JLabel lblBookingDate;
-    private javax.swing.JLabel lblPropertyID;
     private javax.swing.JLabel lblPropertyName;
     private javax.swing.JLabel lblTenant;
     private javax.swing.JTextField txtAppID;
-    private javax.swing.JTextField txtPropertyID;
     private javax.swing.JTextField txtPropertyName;
     private javax.swing.JTextField txtTenantName;
     // End of variables declaration//GEN-END:variables
