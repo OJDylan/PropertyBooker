@@ -1,5 +1,6 @@
-package javaassignment2;
+package javaassignment2.GUIForms;
 
+import javaassignment2.User;
 import javax.swing.JOptionPane;
 
 public class GUILogIn extends javax.swing.JFrame {

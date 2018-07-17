@@ -1,5 +1,6 @@
-package javaassignment2;
+package javaassignment2.GUIForms;
 
+import javaassignment2.Buyer;
 import javax.swing.JOptionPane;
 
 public class GUIRegister extends javax.swing.JFrame {

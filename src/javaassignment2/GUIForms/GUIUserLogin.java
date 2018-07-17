@@ -1,4 +1,6 @@
-package javaassignment2;
+package javaassignment2.GUIForms;
+
+import javaassignment2.Buyer;
 
 public class GUIUserLogin extends javax.swing.JFrame {
     public GUIUserLogin() {

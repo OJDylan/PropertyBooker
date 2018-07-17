@@ -1,5 +1,7 @@
 package javaassignment2;
 
+import javaassignment2.GUIForms.GUILogIn;
+import javaassignment2.GUIForms.GUIUserLogin;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;

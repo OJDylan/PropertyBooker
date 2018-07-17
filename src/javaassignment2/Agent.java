@@ -1,5 +1,9 @@
 package javaassignment2;
 
+import javaassignment2.GUIForms.GUIAppointmentReport;
+import javaassignment2.GUIForms.GUIAdminPage;
+import javaassignment2.GUIForms.GUIEditProperty;
+
 public class Agent extends User{
     public String agentId;
     public static String agentName;

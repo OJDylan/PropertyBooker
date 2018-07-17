@@ -1,4 +1,7 @@
-package javaassignment2;
+package javaassignment2.GUIForms;
+
+import javaassignment2.Agent;
+import javaassignment2.Appointment;
 
 public class GUIAdminPage extends javax.swing.JFrame {
     public GUIAdminPage() {

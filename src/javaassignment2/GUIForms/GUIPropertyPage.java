@@ -1,4 +1,4 @@
-package javaassignment2;
+package javaassignment2.GUIForms;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -10,9 +10,14 @@ import javax.swing.JOptionPane;
 
 public class GUIPropertyPage extends javax.swing.JFrame {
     private int pCounter = 1;
+    private int number = 0;
     
     public GUIPropertyPage() {
         initComponents();
+        assignProperty();
+    }
+    
+    public void assignProperty(){
         try {
             Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
             String sql = "SELECT * FROM PROPERTY WHERE PROPERTY_ID = " + pCounter;

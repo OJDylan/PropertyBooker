@@ -1,4 +1,4 @@
-package javaassignment2;
+package javaassignment2.GUIForms;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;
