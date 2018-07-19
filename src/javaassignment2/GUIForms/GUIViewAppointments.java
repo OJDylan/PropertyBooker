@@ -55,6 +55,7 @@ public class GUIViewAppointments extends javax.swing.JFrame {
             }
         });
         tblAppointment.setToolTipText("");
+        tblAppointment.setEnabled(false);
         tblAppointment.setRowHeight(30);
         jScrollPane1.setViewportView(tblAppointment);
 

@@ -3,6 +3,7 @@ package javaassignment2;
 import javaassignment2.GUIForms.GUIAppointmentReport;
 import javaassignment2.GUIForms.GUIAdminPage;
 import javaassignment2.GUIForms.GUIEditProperty;
+import javaassignment2.GUIForms.GUIViewUsers;
 
 public class Agent extends User{
     public String agentId;
@@ -16,7 +17,6 @@ public class Agent extends User{
     //Constructor with 1 parameter
     public Agent(String name){
         agentName = name;
-        
     }
     
     @Override
@@ -36,4 +36,8 @@ public class Agent extends User{
         
     }
     
+    public void viewUser(){
+        GUIViewUsers vu = new GUIViewUsers();
+        vu.run();
+    }
 }

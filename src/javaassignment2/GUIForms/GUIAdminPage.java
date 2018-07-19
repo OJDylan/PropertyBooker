@@ -14,6 +14,7 @@ public class GUIAdminPage extends javax.swing.JFrame {
 
         btnCreateReport = new javax.swing.JButton();
         btnViewAppointments = new javax.swing.JButton();
+        btnViewU = new javax.swing.JButton();
         menubarAdmin = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuitemEdit = new javax.swing.JMenuItem();
@@ -36,6 +37,14 @@ public class GUIAdminPage extends javax.swing.JFrame {
         btnViewAppointments.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewAppointmentsActionPerformed(evt);
+            }
+        });
+
+        btnViewU.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnViewU.setText("View Users");
+        btnViewU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewUActionPerformed(evt);
             }
         });
 
@@ -69,17 +78,20 @@ public class GUIAdminPage extends javax.swing.JFrame {
                 .addGap(125, 125, 125)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnCreateReport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnViewAppointments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnViewAppointments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnViewU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(125, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(48, 48, 48)
                 .addComponent(btnCreateReport)
                 .addGap(18, 18, 18)
                 .addComponent(btnViewAppointments)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnViewU)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         pack();
@@ -110,6 +122,12 @@ public class GUIAdminPage extends javax.swing.JFrame {
         Appointment a = new Appointment();
         a.viewAppointments();
     }//GEN-LAST:event_btnViewAppointmentsActionPerformed
+
+    private void btnViewUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewUActionPerformed
+        // TODO add your handling code here:
+        Agent a = new Agent();
+        a.viewUser();
+    }//GEN-LAST:event_btnViewUActionPerformed
 
     public static void run() {
         /* Set the Nimbus look and feel */
@@ -147,6 +165,7 @@ public class GUIAdminPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateReport;
     private javax.swing.JButton btnViewAppointments;
+    private javax.swing.JButton btnViewU;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar menubarAdmin;
     private javax.swing.JMenuItem menuitemEdit;
