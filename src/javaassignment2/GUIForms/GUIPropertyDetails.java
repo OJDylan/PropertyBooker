@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 
 public class GUIPropertyDetails extends javax.swing.JFrame {
     private static int number;
-    private static String[] filename = {"p1.png", "p2.png", "p3.png"};
+    private static String[] filename = {"map(1).png", "map(2).png", "map(3).png"};
     private Icon[] pics = {new ImageIcon(getClass().getResource(filename[0])), 
                            new ImageIcon(getClass().getResource(filename[1])),
                            new ImageIcon(getClass().getResource(filename[2]))};
