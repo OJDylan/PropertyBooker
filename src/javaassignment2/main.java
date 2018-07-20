@@ -13,11 +13,11 @@ public class main {
 //        Agent a = new Agent();
 //        a.login();
 
-        GUIAdminLogin al = new GUIAdminLogin();
-        al.run();
+//        GUIAdminLogin al = new GUIAdminLogin();
+//        al.run();
 
-//        User a = new User();
-//        a.login();
+        User a = new User();
+        a.login();
 
     }
 

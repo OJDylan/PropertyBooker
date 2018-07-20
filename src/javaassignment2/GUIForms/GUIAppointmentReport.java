@@ -70,15 +70,19 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
         setResizable(false);
 
         lblAgent.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblAgent.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblAgent.setText("Agent");
 
         lblTenant.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblTenant.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblTenant.setText("Tenant");
 
         lblPropertyName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblPropertyName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPropertyName.setText("Property Name");
 
         lblBookingDate.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblBookingDate.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblBookingDate.setText("Appointment Date");
 
         lblAppointmentID.setText("Appointment ID: ");
@@ -172,10 +176,14 @@ public class GUIAppointmentReport extends javax.swing.JFrame {
 
     private void btnConfirmAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmAppActionPerformed
         // TODO add your handling code here:
-        AppointmentDetails a = new AppointmentDetails(Integer.parseInt(txtAppID.getText()), ((JTextField)JDateChooser.getDateEditor().getUiComponent()).getText(), txtTenantName.getText(), txtPropertyName.getText());
-        a.getID();
-        a.confirmAppointment();
-        dispose();
+        if(txtAppID.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter appointment number");
+        } else{
+            AppointmentDetails a = new AppointmentDetails(Integer.parseInt(txtAppID.getText()), ((JTextField)JDateChooser.getDateEditor().getUiComponent()).getText(), txtTenantName.getText(), txtPropertyName.getText());
+            a.getID();
+            a.confirmAppointment();
+            dispose();
+        }
     }//GEN-LAST:event_btnConfirmAppActionPerformed
 
     public static void run() {

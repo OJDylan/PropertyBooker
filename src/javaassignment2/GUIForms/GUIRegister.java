@@ -35,18 +35,23 @@ public class GUIRegister extends javax.swing.JFrame {
         setResizable(false);
 
         lblUsername.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblUsername.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblUsername.setText("Username");
 
         lblPassword.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPassword.setText("Password");
 
         lblCPassword.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblCPassword.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCPassword.setText("Confirm Password");
 
         lblEmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblEmail.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblEmail.setText("E-Mail");
 
         lblContactNumber.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblContactNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblContactNumber.setText("Contact Number");
 
         txtUsername.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -75,11 +80,13 @@ public class GUIRegister extends javax.swing.JFrame {
         });
 
         lblFirstName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblFirstName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblFirstName.setText("First Name");
 
         txtFName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         lblLastName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblLastName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblLastName.setText("Last Name");
 
         txtLName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N

@@ -103,30 +103,34 @@ public class GUIPropertyDetails extends javax.swing.JFrame {
         setResizable(false);
 
         lblAgentName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblAgentName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblAgentName.setText("Agent Name");
 
         lblContact.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblContact.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblContact.setText("Contact Number");
 
         lblMapInfo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblMapInfo.setText("Location");
 
-        lblName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblName.setText("<name>");
 
-        lblNumber.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblNumber.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblNumber.setText("<number>");
 
         lblPropertyPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblPropertyPrice.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPropertyPrice.setText("Property Price");
 
-        lblPrice.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblPrice.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblPrice.setText("<price>");
 
         lblAgentEmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblAgentEmail.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblAgentEmail.setText("Email");
 
-        lblEmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblEmail.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblEmail.setText("<email>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -139,12 +143,12 @@ public class GUIPropertyDetails extends javax.swing.JFrame {
                     .addComponent(lblMapInfo)
                     .addComponent(lblMap, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAgentName)
-                            .addComponent(lblContact)
-                            .addComponent(lblPropertyPrice)
-                            .addComponent(lblAgentEmail))
-                        .addGap(66, 66, 66)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblContact, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                            .addComponent(lblPropertyPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAgentEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAgentName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblEmail)
                             .addComponent(lblPrice)
