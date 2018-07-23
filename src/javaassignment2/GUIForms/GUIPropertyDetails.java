@@ -11,10 +11,13 @@ import javax.swing.ImageIcon;
 
 public class GUIPropertyDetails extends javax.swing.JFrame {
     private static int number;
-    private static String[] filename = {"map(1).png", "map(2).png", "map(3).png"};
+    private static String[] filename = {"map(1).png", "map(2).png", "map(3).png", "p1.png", "p2.png", "p3.png"};
     private Icon[] pics = {new ImageIcon(getClass().getResource(filename[0])), 
                            new ImageIcon(getClass().getResource(filename[1])),
-                           new ImageIcon(getClass().getResource(filename[2]))};
+                           new ImageIcon(getClass().getResource(filename[2])),
+                           new ImageIcon(getClass().getResource(filename[3])),
+                           new ImageIcon(getClass().getResource(filename[4])),
+                           new ImageIcon(getClass().getResource(filename[5]))};
     
     public GUIPropertyDetails(int num) {
         initComponents();
@@ -51,6 +54,7 @@ public class GUIPropertyDetails extends javax.swing.JFrame {
                 Logger.getLogger(GUIPropertyDetails.class.getName()).log(Level.SEVERE, null, ex);
             }
             lblMap.setIcon(pics[0]);
+            lblPImage.setIcon(pics[3]);
         }
         else if(number == 2){
             try {
@@ -80,6 +84,7 @@ public class GUIPropertyDetails extends javax.swing.JFrame {
                 Logger.getLogger(GUIPropertyDetails.class.getName()).log(Level.SEVERE, null, ex);
             }
             lblMap.setIcon(pics[1]);
+            lblPImage.setIcon(pics[4]);
         }
     }
 
@@ -97,10 +102,14 @@ public class GUIPropertyDetails extends javax.swing.JFrame {
         lblPrice = new javax.swing.JLabel();
         lblAgentEmail = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
+        lblPImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Contact");
         setResizable(false);
+
+        lblMap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMap.setText("<map>");
 
         lblAgentName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblAgentName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -133,6 +142,8 @@ public class GUIPropertyDetails extends javax.swing.JFrame {
         lblEmail.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblEmail.setText("<email>");
 
+        lblPImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -141,45 +152,51 @@ public class GUIPropertyDetails extends javax.swing.JFrame {
                 .addContainerGap(165, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblMapInfo)
-                    .addComponent(lblMap, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblContact, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-                            .addComponent(lblPropertyPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblAgentEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblAgentName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEmail)
-                            .addComponent(lblPrice)
-                            .addComponent(lblNumber)
-                            .addComponent(lblName))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(lblPropertyPrice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblAgentName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblContact, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                                .addComponent(lblAgentEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblName)
+                                .addComponent(lblEmail)
+                                .addComponent(lblPrice)
+                                .addComponent(lblNumber))
+                            .addGap(18, 18, 18)
+                            .addComponent(lblPImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblMap, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(165, 165, 165))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAgentName)
-                    .addComponent(lblName))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblContact)
-                    .addComponent(lblNumber))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPropertyPrice)
-                    .addComponent(lblPrice))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAgentEmail)
-                    .addComponent(lblEmail))
-                .addGap(37, 37, 37)
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAgentName)
+                            .addComponent(lblName))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblContact)
+                            .addComponent(lblNumber))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPropertyPrice)
+                            .addComponent(lblPrice))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAgentEmail)
+                            .addComponent(lblEmail)))
+                    .addComponent(lblPImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addComponent(lblMapInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblMap, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addGap(34, 34, 34))
         );
 
         pack();
@@ -229,6 +246,7 @@ public class GUIPropertyDetails extends javax.swing.JFrame {
     private javax.swing.JLabel lblMapInfo;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblNumber;
+    private javax.swing.JLabel lblPImage;
     private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblPropertyPrice;
     // End of variables declaration//GEN-END:variables

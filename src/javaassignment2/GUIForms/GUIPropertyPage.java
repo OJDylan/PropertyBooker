@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 public class GUIPropertyPage extends javax.swing.JFrame {
-    private int number = 0;
+    private int number;
     
     public GUIPropertyPage() {
         initComponents();
@@ -167,8 +167,8 @@ public class GUIPropertyPage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE))
         );
 
         pack();
@@ -190,7 +190,11 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         int row = tblProperty.rowAtPoint(evt.getPoint());
         if(row == 0){
-            System.out.println("Ayy lmao");
+            GUIPropertyDetails pd = new GUIPropertyDetails(1);
+            pd.run();
+        } else if(row == 1){
+            GUIPropertyDetails pd = new GUIPropertyDetails(2);
+            pd.run();
         }
     }//GEN-LAST:event_tblPropertyMouseClicked
 
