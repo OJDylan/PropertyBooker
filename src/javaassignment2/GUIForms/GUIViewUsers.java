@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 public class GUIViewUsers extends javax.swing.JFrame {
@@ -52,11 +51,6 @@ public class GUIViewUsers extends javax.swing.JFrame {
             }
         ));
         tblUsers.setEnabled(false);
-        tblUsers.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblUsersMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(tblUsers);
 
         txtSearch.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -119,15 +113,6 @@ public class GUIViewUsers extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnSearchActionPerformed
-
-    private void tblUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsersMouseClicked
-        // TODO add your handling code here:
-        int row = tblUsers.rowAtPoint(evt.getPoint());
-        int col = tblUsers.columnAtPoint(evt.getPoint());
-        if(row == 0 && col == 0){
-            JOptionPane.showMessageDialog(null, "This is America");
-        }
-    }//GEN-LAST:event_tblUsersMouseClicked
 
     public static void run() {
         /* Set the Nimbus look and feel */

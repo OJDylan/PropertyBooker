@@ -6,9 +6,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 public class GUIPropertyPage extends javax.swing.JFrame {
-    private int pCounter = 1;
     private int number = 0;
     
     public GUIPropertyPage() {
@@ -19,45 +20,9 @@ public class GUIPropertyPage extends javax.swing.JFrame {
     public void assignProperty(){
         try {
             Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql = "SELECT * FROM PROPERTY WHERE PROPERTY_ID = " + pCounter;
+            String sql ="SELECT PROPERTY_NAME, PROPERTY_TYPE, TENURE, PROPERTY_PRICE FROM PROPERTY WHERE PROPERTY_STATUS = true";
             ResultSet rs = s.executeQuery(sql);
-            
-            while(rs.next()){
-                lblPropertyNameD.setText(rs.getString("PROPERTY_NAME"));
-                lblPropertyTypeD.setText(rs.getString("PROPERTY_TYPE"));
-                if(rs.getString("PROPERTY_STATUS").equals("true")){
-                    String status = "Available";
-                    lblPropertyStatusD.setText(status);
-                }
-                else if(rs.getString("PROPERTY_STATUS").equals("false")){
-                    String status = "Unavailable";
-                    lblPropertyStatusD.setText(status);
-                }
-                pCounter++;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        //Not optimal code but it works
-        try {
-            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql = "SELECT * FROM PROPERTY WHERE PROPERTY_ID = " + pCounter;
-            ResultSet rs = s.executeQuery(sql);
-            
-            while(rs.next()){
-                lblPropertyNameD1.setText(rs.getString("PROPERTY_NAME"));
-                lblPropertyTypeD1.setText(rs.getString("PROPERTY_TYPE"));
-                if(rs.getString("PROPERTY_STATUS").equals("true")){
-                    String status = "Available";
-                    lblPropertyStatusD1.setText(status);
-                }
-                else if(rs.getString("PROPERTY_STATUS").equals("false")){
-                    String status = "Unavailable";
-                    lblPropertyStatusD1.setText(status);
-                }
-                pCounter++;
-            }
+            tblProperty.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (SQLException ex) {
             Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -74,24 +39,8 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         lblCBPropertyType = new javax.swing.JLabel();
         lblCBPropertyStatus = new javax.swing.JLabel();
         lblCBState = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        JPanel = new javax.swing.JPanel();
-        lblPropertyNameD1 = new javax.swing.JLabel();
-        lblPropertyTypeD1 = new javax.swing.JLabel();
-        lblPropertyStatusD1 = new javax.swing.JLabel();
-        propertyPic2 = new javax.swing.JLabel();
-        lblPropertyStatus1 = new javax.swing.JLabel();
-        lblPropertyName1 = new javax.swing.JLabel();
-        lblPropertyType1 = new javax.swing.JLabel();
-        lblPropertyTypeD = new javax.swing.JLabel();
-        lblPropertyStatusD = new javax.swing.JLabel();
-        propertyPic1 = new javax.swing.JLabel();
-        lblPropertyName = new javax.swing.JLabel();
-        lblPropertyType = new javax.swing.JLabel();
-        lblPropertyStatus = new javax.swing.JLabel();
-        lblPropertyNameD = new javax.swing.JLabel();
-        btnContact2 = new javax.swing.JButton();
-        btnContact1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblProperty = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuitemLogout = new javax.swing.JMenuItem();
@@ -158,143 +107,30 @@ public class GUIPropertyPage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-        lblPropertyNameD1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        lblPropertyNameD1.setText("<property name>");
-
-        lblPropertyTypeD1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        lblPropertyTypeD1.setText("<property type>");
-
-        lblPropertyStatusD1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        lblPropertyStatusD1.setText("<property status>");
-
-        propertyPic2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaassignment2/GUIForms/p2.png"))); // NOI18N
-        propertyPic2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        lblPropertyStatus1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblPropertyStatus1.setText("Availability");
-
-        lblPropertyName1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblPropertyName1.setText("Property Name");
-
-        lblPropertyType1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblPropertyType1.setText("Property Type");
-
-        lblPropertyTypeD.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        lblPropertyTypeD.setText("<property type>");
-
-        lblPropertyStatusD.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        lblPropertyStatusD.setText("<property status>");
-
-        propertyPic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaassignment2/GUIForms/p1.png"))); // NOI18N
-        propertyPic1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        lblPropertyName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblPropertyName.setText("Property Name");
-
-        lblPropertyType.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblPropertyType.setText("Property Type");
-
-        lblPropertyStatus.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblPropertyStatus.setText("Availability");
-
-        lblPropertyNameD.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        lblPropertyNameD.setText("<property name>");
-
-        btnContact2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnContact2.setText("Contact Agent!");
-        btnContact2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnContact2ActionPerformed(evt);
+        tblProperty.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        tblProperty.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblProperty.setCellSelectionEnabled(false);
+        tblProperty.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblProperty.setEnabled(false);
+        tblProperty.setMinimumSize(new java.awt.Dimension(105, 64));
+        tblProperty.setRowHeight(30);
+        tblProperty.setShowVerticalLines(false);
+        tblProperty.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPropertyMouseClicked(evt);
             }
         });
-
-        btnContact1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnContact1.setText("Contact Agent!");
-        btnContact1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnContact1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout JPanelLayout = new javax.swing.GroupLayout(JPanel);
-        JPanel.setLayout(JPanelLayout);
-        JPanelLayout.setHorizontalGroup(
-            JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(propertyPic2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(propertyPic1))
-                .addGap(18, 18, 18)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelLayout.createSequentialGroup()
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblPropertyName1)
-                            .addComponent(lblPropertyStatus1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPropertyType1, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(18, 18, 18)
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblPropertyNameD1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPropertyStatusD1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPropertyTypeD1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnContact1)
-                    .addComponent(btnContact2)
-                    .addGroup(JPanelLayout.createSequentialGroup()
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblPropertyName)
-                            .addComponent(lblPropertyStatus, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPropertyType, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(18, 18, 18)
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblPropertyNameD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPropertyTypeD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPropertyStatusD))))
-                .addContainerGap(278, Short.MAX_VALUE))
-        );
-        JPanelLayout.setVerticalGroup(
-            JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(propertyPic1)
-                    .addGroup(JPanelLayout.createSequentialGroup()
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPropertyName)
-                            .addComponent(lblPropertyNameD))
-                        .addGap(18, 18, 18)
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPropertyType)
-                            .addComponent(lblPropertyTypeD))
-                        .addGap(18, 18, 18)
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPropertyStatus)
-                            .addComponent(lblPropertyStatusD))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnContact1)))
-                .addGap(45, 45, 45)
-                .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(propertyPic2)
-                    .addGroup(JPanelLayout.createSequentialGroup()
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPropertyName1)
-                            .addComponent(lblPropertyNameD1))
-                        .addGap(18, 18, 18)
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPropertyType1)
-                            .addComponent(lblPropertyTypeD1))
-                        .addGap(18, 18, 18)
-                        .addGroup(JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPropertyStatus1)
-                            .addComponent(lblPropertyStatusD1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnContact2)))
-                .addContainerGap(445, Short.MAX_VALUE))
-        );
-
-        jScrollPane1.setViewportView(JPanel);
+        jScrollPane2.setViewportView(tblProperty);
 
         jMenu1.setText("System");
 
@@ -316,19 +152,17 @@ public class GUIPropertyPage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(89, 89, 89)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(259, Short.MAX_VALUE))
+            .addComponent(jScrollPane2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addGap(64, 64, 64)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE))
         );
 
         pack();
@@ -336,12 +170,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
 
     private void cbPropertyTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPropertyTypeActionPerformed
         // TODO add your handling code here:
-        if(cbPropertyType.getSelectedItem().toString().equals("All")) {
-            JPanel.setVisible(true);
-        }
-        else{
-            JPanel.setVisible(false);
-        }
+        
     }//GEN-LAST:event_cbPropertyTypeActionPerformed
 
     private void menuitemLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitemLogoutActionPerformed
@@ -351,18 +180,14 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         l.run();
     }//GEN-LAST:event_menuitemLogoutActionPerformed
 
-    private void btnContact1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContact1ActionPerformed
+    private void tblPropertyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPropertyMouseClicked
         // TODO add your handling code here:
-        number = 1;
-        GUIPropertyDetails pd = new GUIPropertyDetails(number);
-        pd.run();
-    }//GEN-LAST:event_btnContact1ActionPerformed
-
-    private void btnContact2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContact2ActionPerformed
-        number = 2;
-        GUIPropertyDetails pd = new GUIPropertyDetails(number);
-        pd.run();
-    }//GEN-LAST:event_btnContact2ActionPerformed
+        int row = tblProperty.rowAtPoint(evt.getPoint());
+        int col = tblProperty.columnAtPoint(evt.getPoint());
+        if(row == 0 && col == 0){
+            
+        }
+    }//GEN-LAST:event_tblPropertyMouseClicked
 
     public static void run() {
         /* Set the Nimbus look and feel */
@@ -400,34 +225,18 @@ public class GUIPropertyPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel JPanel;
-    private javax.swing.JButton btnContact1;
-    private javax.swing.JButton btnContact2;
     private javax.swing.JComboBox<String> cbPropertyStatus;
     private javax.swing.JComboBox<String> cbPropertyType;
     private javax.swing.JComboBox<String> cbState;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblCBPropertyStatus;
     private javax.swing.JLabel lblCBPropertyType;
     private javax.swing.JLabel lblCBState;
-    private javax.swing.JLabel lblPropertyName;
-    private javax.swing.JLabel lblPropertyName1;
-    private javax.swing.JLabel lblPropertyNameD;
-    private javax.swing.JLabel lblPropertyNameD1;
-    private javax.swing.JLabel lblPropertyStatus;
-    private javax.swing.JLabel lblPropertyStatus1;
-    private javax.swing.JLabel lblPropertyStatusD;
-    private javax.swing.JLabel lblPropertyStatusD1;
-    private javax.swing.JLabel lblPropertyType;
-    private javax.swing.JLabel lblPropertyType1;
-    private javax.swing.JLabel lblPropertyTypeD;
-    private javax.swing.JLabel lblPropertyTypeD1;
     private javax.swing.JMenuItem menuitemLogout;
-    private javax.swing.JLabel propertyPic1;
-    private javax.swing.JLabel propertyPic2;
+    private javax.swing.JTable tblProperty;
     // End of variables declaration//GEN-END:variables
 
 }
