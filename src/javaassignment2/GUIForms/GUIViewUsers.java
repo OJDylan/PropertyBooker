@@ -17,7 +17,7 @@ public class GUIViewUsers extends javax.swing.JFrame {
     private void UpdateTable(){
         try {
             Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql ="SELECT USERNAME, FIRST_NAME, LAST_NAME, CONTACT_NUMBER, EMAIL FROM DYLAN.BUYER";
+            String sql ="SELECT USERNAME as Username, FIRST_NAME as FirstName, LAST_NAME as LastName, CONTACT_NUMBER as Number, EMAIL as Email FROM DYLAN.BUYER";
             ResultSet rs = s.executeQuery(sql);
             tblUsers.setModel(DbUtils.resultSetToTableModel(rs));
             

@@ -1,5 +1,6 @@
 package javaassignment2.GUIForms;
 
+import java.awt.Color;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
     public void assignProperty(){
         try {
             Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql ="SELECT PROPERTY_NAME, PROPERTY_TYPE, TENURE, PROPERTY_PRICE FROM PROPERTY WHERE PROPERTY_STATUS = true";
+            String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_PRICE as Price FROM PROPERTY WHERE PROPERTY_STATUS = true";
             ResultSet rs = s.executeQuery(sql);
             tblProperty.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (SQLException ex) {
@@ -119,11 +120,16 @@ public class GUIPropertyPage extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblProperty.setToolTipText("");
         tblProperty.setCellSelectionEnabled(false);
-        tblProperty.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblProperty.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tblProperty.setDragEnabled(true);
         tblProperty.setEnabled(false);
         tblProperty.setMinimumSize(new java.awt.Dimension(105, 64));
+        tblProperty.setName(""); // NOI18N
         tblProperty.setRowHeight(30);
+        tblProperty.setRowSelectionAllowed(true);
+        tblProperty.setRowSorter(null);
         tblProperty.setShowVerticalLines(false);
         tblProperty.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -183,9 +189,8 @@ public class GUIPropertyPage extends javax.swing.JFrame {
     private void tblPropertyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPropertyMouseClicked
         // TODO add your handling code here:
         int row = tblProperty.rowAtPoint(evt.getPoint());
-        int col = tblProperty.columnAtPoint(evt.getPoint());
-        if(row == 0 && col == 0){
-            
+        if(row == 0){
+            System.out.println("Ayy lmao");
         }
     }//GEN-LAST:event_tblPropertyMouseClicked
 
