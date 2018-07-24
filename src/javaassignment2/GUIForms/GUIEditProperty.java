@@ -8,39 +8,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javaassignment2.Buyer;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 public class GUIEditProperty extends javax.swing.JFrame {
     public int number = 0;
     
     public GUIEditProperty() {
         initComponents();
-        setPropertyName();
+        populateTable();
     }
     
-    public void setPropertyName(){
-        int pCounter = 1;
-        try {    
+    public void populateTable(){
+        try {
             Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql = "SELECT * FROM PROPERTY WHERE PROPERTY_ID = " + pCounter;
+            String sql ="SELECT PROPERTY_NAME as Property FROM PROPERTY";
             ResultSet rs = s.executeQuery(sql);
-            
-            while(rs.next()){
-                lblProperty1.setText(rs.getString("PROPERTY_NAME"));
-                pCounter++;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(GUIEditProperty.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {    
-            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql = "SELECT * FROM PROPERTY WHERE PROPERTY_ID = " + pCounter;
-            ResultSet rs = s.executeQuery(sql);
-            
-            while(rs.next()){
-                lblProperty2.setText(rs.getString("PROPERTY_NAME"));
-                pCounter++;
-            }
+            tblProperty.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (SQLException ex) {
             Logger.getLogger(GUIEditProperty.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -50,12 +33,8 @@ public class GUIEditProperty extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblProperty1 = new javax.swing.JLabel();
-        lblProperty2 = new javax.swing.JLabel();
-        lblProperty3 = new javax.swing.JLabel();
-        btnEdit1 = new javax.swing.JButton();
-        btnEdit2 = new javax.swing.JButton();
-        btnEdit3 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblProperty = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuItemHome = new javax.swing.JMenuItem();
@@ -65,36 +44,43 @@ public class GUIEditProperty extends javax.swing.JFrame {
         setTitle("Edit Property");
         setResizable(false);
 
-        lblProperty1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblProperty1.setText("<property 1>");
-        lblProperty1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblProperty.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        tblProperty.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
 
-        lblProperty2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblProperty2.setText("<property 2>");
-
-        lblProperty3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblProperty3.setText("<property 3>");
-
-        btnEdit1.setText("Edit");
-        btnEdit1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEdit1ActionPerformed(evt);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-
-        btnEdit2.setText("Edit");
-        btnEdit2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEdit2ActionPerformed(evt);
+        tblProperty.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tblProperty.setRowHeight(20);
+        tblProperty.getTableHeader().setReorderingAllowed(false);
+        tblProperty.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPropertyMouseClicked(evt);
             }
         });
-
-        btnEdit3.setText("Edit");
-        btnEdit3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEdit3ActionPerformed(evt);
-            }
-        });
+        jScrollPane1.setViewportView(tblProperty);
+        tblProperty.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (tblProperty.getColumnModel().getColumnCount() > 0) {
+            tblProperty.getColumnModel().getColumn(0).setResizable(false);
+            tblProperty.getColumnModel().getColumn(1).setResizable(false);
+            tblProperty.getColumnModel().getColumn(2).setResizable(false);
+            tblProperty.getColumnModel().getColumn(3).setResizable(false);
+            tblProperty.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         jMenu1.setText("System");
 
@@ -122,61 +108,15 @@ public class GUIEditProperty extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblProperty1)
-                    .addComponent(lblProperty2)
-                    .addComponent(lblProperty3))
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEdit3)
-                    .addComponent(btnEdit2)
-                    .addComponent(btnEdit1))
-                .addContainerGap(235, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblProperty1)
-                            .addComponent(btnEdit1))
-                        .addGap(44, 44, 44)
-                        .addComponent(lblProperty2))
-                    .addComponent(btnEdit2))
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblProperty3)
-                    .addComponent(btnEdit3))
-                .addContainerGap(101, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnEdit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdit1ActionPerformed
-        // TODO add your handling code here:
-        number = 1;
-        GUIEditPropertyPage ep = new GUIEditPropertyPage(number);
-        ep.run();
-    }//GEN-LAST:event_btnEdit1ActionPerformed
-
-    private void btnEdit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdit2ActionPerformed
-        // TODO add your handling code here:
-        number = 2;
-        GUIEditPropertyPage ep = new GUIEditPropertyPage(number);
-        ep.run();
-    }//GEN-LAST:event_btnEdit2ActionPerformed
-
-    private void btnEdit3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdit3ActionPerformed
-        // TODO add your handling code here:
-        number = 3;
-        GUIEditPropertyPage ep = new GUIEditPropertyPage(number);
-        ep.run();
-    }//GEN-LAST:event_btnEdit3ActionPerformed
 
     private void menuItemLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLogoutActionPerformed
         // TODO add your handling code here:
@@ -191,6 +131,11 @@ public class GUIEditProperty extends javax.swing.JFrame {
         GUIAdminPage ap = new GUIAdminPage();
         ap.run();
     }//GEN-LAST:event_menuItemHomeActionPerformed
+
+    private void tblPropertyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPropertyMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tblPropertyMouseClicked
 
     public static void run() {
         /* Set the Nimbus look and feel */
@@ -225,16 +170,12 @@ public class GUIEditProperty extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnEdit1;
-    public javax.swing.JButton btnEdit2;
-    public javax.swing.JButton btnEdit3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JLabel lblProperty1;
-    private javax.swing.JLabel lblProperty2;
-    private javax.swing.JLabel lblProperty3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem menuItemHome;
     private javax.swing.JMenuItem menuItemLogout;
+    private javax.swing.JTable tblProperty;
     // End of variables declaration//GEN-END:variables
 
 }

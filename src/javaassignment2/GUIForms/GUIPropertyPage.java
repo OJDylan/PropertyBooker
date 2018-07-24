@@ -1,6 +1,5 @@
 package javaassignment2.GUIForms;
 
-import java.awt.Color;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -119,24 +118,36 @@ public class GUIPropertyPage extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblProperty.setToolTipText("");
-        tblProperty.setCellSelectionEnabled(false);
         tblProperty.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tblProperty.setDragEnabled(true);
-        tblProperty.setEnabled(false);
         tblProperty.setMinimumSize(new java.awt.Dimension(105, 64));
         tblProperty.setName(""); // NOI18N
         tblProperty.setRowHeight(30);
-        tblProperty.setRowSelectionAllowed(true);
-        tblProperty.setRowSorter(null);
+        tblProperty.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tblProperty.setShowVerticalLines(false);
+        tblProperty.getTableHeader().setReorderingAllowed(false);
         tblProperty.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblPropertyMouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(tblProperty);
+        tblProperty.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (tblProperty.getColumnModel().getColumnCount() > 0) {
+            tblProperty.getColumnModel().getColumn(0).setResizable(false);
+            tblProperty.getColumnModel().getColumn(1).setResizable(false);
+            tblProperty.getColumnModel().getColumn(2).setResizable(false);
+            tblProperty.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jMenu1.setText("System");
 

@@ -28,29 +28,30 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="165" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblMapInfo" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="lblPropertyPrice" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lblAgentName" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lblContact" alignment="0" pref="167" max="32767" attributes="0"/>
-                              <Component id="lblAgentEmail" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblName" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblPrice" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblNumber" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="lblPImage" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="lblPropertyPrice" alignment="0" min="-2" pref="167" max="-2" attributes="0"/>
+                          <Component id="lblAgentName" alignment="0" min="-2" pref="167" max="-2" attributes="0"/>
+                          <Component id="lblContact" alignment="0" min="-2" pref="167" max="-2" attributes="0"/>
+                          <Component id="lblAgentEmail" min="-2" pref="167" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="lblMap" alignment="0" min="-2" pref="502" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblName" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPrice" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="lblPImage" min="-2" pref="223" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="lblMap" min="-2" pref="553" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="lblMapInfo" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -95,7 +96,6 @@
     <Component class="javax.swing.JLabel" name="lblMap">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="&lt;map&gt;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblAgentName">
