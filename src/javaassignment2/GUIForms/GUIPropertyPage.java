@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 public class GUIPropertyPage extends javax.swing.JFrame {
@@ -15,6 +14,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
     public GUIPropertyPage() {
         initComponents();
         assignProperty();
+        tblProperty.setDefaultEditor(Object.class, null);
     }
     
     public void assignProperty(){

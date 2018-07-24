@@ -16,6 +16,7 @@ public class GUIEditProperty extends javax.swing.JFrame {
     public GUIEditProperty() {
         initComponents();
         populateTable();
+        tblProperty.setDefaultEditor(Object.class, null);
     }
     
     public void populateTable(){
