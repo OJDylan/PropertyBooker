@@ -20,7 +20,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
     public void assignProperty(){
         try {
             Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_PRICE as Price FROM PROPERTY WHERE PROPERTY_STATUS = true";
+            String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_STATE as STATE FROM PROPERTY WHERE PROPERTY_STATUS = true";
             ResultSet rs = s.executeQuery(sql);
             tblProperty.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (SQLException ex) {
@@ -58,7 +58,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         });
 
         cbPropertyStatus.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cbPropertyStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Available", "Unavailable" }));
+        cbPropertyStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "For Sale", "For Rent" }));
 
         cbState.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kuala Lumpur", "Selangor", "Penang" }));
@@ -67,7 +67,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         lblCBPropertyType.setText("Type");
 
         lblCBPropertyStatus.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblCBPropertyStatus.setText("Status");
+        lblCBPropertyStatus.setText("Sales/Rent");
 
         lblCBState.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblCBState.setText("State");
@@ -170,7 +170,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(89, 89, 89)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addContainerGap(280, Short.MAX_VALUE))
             .addComponent(jScrollPane2)
         );
         layout.setVerticalGroup(
@@ -187,7 +187,26 @@ public class GUIPropertyPage extends javax.swing.JFrame {
 
     private void cbPropertyTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPropertyTypeActionPerformed
         // TODO add your handling code here:
-        
+        Object type = cbPropertyType.getSelectedItem();
+        if(type.toString().equals("All")){
+            try {
+                Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+                String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_STATE as STATE FROM PROPERTY WHERE PROPERTY_STATUS = true";
+                ResultSet rs = s.executeQuery(sql);
+                tblProperty.setModel(DbUtils.resultSetToTableModel(rs));
+            } catch (SQLException ex) {
+                Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if(type.toString().equals("Condominium")){
+            try {
+                Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+                String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_STATE as STATE FROM PROPERTY WHERE PROPERTY_TYPE = " + "'" + "Condominium" + "'";
+                ResultSet rs = s.executeQuery(sql);
+                tblProperty.setModel(DbUtils.resultSetToTableModel(rs));
+            } catch (SQLException ex) {
+                Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_cbPropertyTypeActionPerformed
 
     private void menuitemLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuitemLogoutActionPerformed

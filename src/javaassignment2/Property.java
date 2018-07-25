@@ -14,6 +14,7 @@ public class Property {
     private boolean propertyStatus;
     private String propertyPrice;
     private char propertyTenure;
+    private String propertySR;
     
     public Property(int id, String name, String type, boolean status, String price, char tenure){
         propertyId = id;
@@ -24,11 +25,12 @@ public class Property {
         propertyTenure = tenure;
     }
     
-    public Property(int id, String name, String price, boolean status){
+    public Property(int id, String name, String price, boolean status, String sor){
         propertyId = id;
         propertyName = name;
         propertyStatus = status;
         propertyPrice = price;
+        propertySR = sor;
     }
     
     public void updateProperty(){
@@ -42,7 +44,8 @@ public class Property {
             String update ="UPDATE PROPERTY " + "SET " +
                            "PROPERTY_NAME = " + "'" + propertyName + "'" + "," +
                            "PROPERTY_PRICE = " + Double.parseDouble(propertyPrice) + "," +
-                           "PROPERTY_STATUS = " + propertyStatus + " " +
+                           "PROPERTY_STATUS = " + propertyStatus + "," +
+                           "SALE_RENT = " + "'" + propertySR + "'" + " " +
                            "WHERE PROPERTY_ID = " + propertyId;
             
             //Executes sql satement

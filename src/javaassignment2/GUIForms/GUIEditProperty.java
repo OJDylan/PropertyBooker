@@ -7,12 +7,9 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javaassignment2.Buyer;
-import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 public class GUIEditProperty extends javax.swing.JFrame {
-    public int number = 0;
-    
     public GUIEditProperty() {
         initComponents();
         populateTable();
@@ -135,7 +132,17 @@ public class GUIEditProperty extends javax.swing.JFrame {
 
     private void tblPropertyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPropertyMouseClicked
         // TODO add your handling code here:
-        
+        int number = 0;
+        int row = tblProperty.rowAtPoint(evt.getPoint());
+        if(row == 0){
+            number = 1;
+            GUIEditPropertyPage pg = new GUIEditPropertyPage(number);
+            pg.run();
+        } else if(row == 1){
+            number = 2;
+            GUIEditPropertyPage pg = new GUIEditPropertyPage(number);
+            pg.run();
+        }
     }//GEN-LAST:event_tblPropertyMouseClicked
 
     public static void run() {
