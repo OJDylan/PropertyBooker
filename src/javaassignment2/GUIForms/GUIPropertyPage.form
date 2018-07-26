@@ -119,13 +119,12 @@
               <Font name="Dialog" size="14" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
+              <StringArray count="5">
                 <StringItem index="0" value="All"/>
                 <StringItem index="1" value="Apartment"/>
                 <StringItem index="2" value="Condominium"/>
                 <StringItem index="3" value="Terrace"/>
                 <StringItem index="4" value="Semi-Detachable"/>
-                <StringItem index="5" value="Bungalow"/>
               </StringArray>
             </Property>
           </Properties>
@@ -149,6 +148,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbPropertyStatusActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -159,13 +161,17 @@
               <Font name="Dialog" size="14" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="Kuala Lumpur"/>
-                <StringItem index="1" value="Selangor"/>
-                <StringItem index="2" value="Penang"/>
+              <StringArray count="4">
+                <StringItem index="0" value="All"/>
+                <StringItem index="1" value="Kuala Lumpur"/>
+                <StringItem index="2" value="Selangor"/>
+                <StringItem index="3" value="Penang"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbStateActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
