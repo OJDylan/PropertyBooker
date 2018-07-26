@@ -9,11 +9,6 @@ import java.util.logging.Logger;
 import net.proteanit.sql.DbUtils;
 
 public class GUIPropertyPage extends javax.swing.JFrame {
-    private int number;
-    private int iState = 0;
-    private int iType = 0;
-    private int iStatus = 0;
-    
     public GUIPropertyPage() {
         initComponents();
         assignProperty();
@@ -42,7 +37,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         lblCBPropertyType = new javax.swing.JLabel();
         lblCBPropertyStatus = new javax.swing.JLabel();
         lblCBState = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblProperty = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -71,10 +66,11 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         lblCBState.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblCBState.setText("State");
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSearch.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnSearch.setText("Search!");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
 
@@ -96,9 +92,9 @@ public class GUIPropertyPage extends javax.swing.JFrame {
                     .addComponent(lblCBPropertyStatus)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(cbPropertyStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92)
-                        .addComponent(jButton1)))
-                .addContainerGap(100, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +109,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
                     .addComponent(cbPropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbPropertyStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(btnSearch))
                 .addContainerGap())
         );
 
@@ -180,7 +176,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(89, 89, 89)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(280, Short.MAX_VALUE))
+                .addContainerGap(261, Short.MAX_VALUE))
             .addComponent(jScrollPane2)
         );
         layout.setVerticalGroup(
@@ -189,7 +185,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE))
         );
 
         pack();
@@ -214,7 +210,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tblPropertyMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
         Object state = cbState.getSelectedItem();
         Object type = cbPropertyType.getSelectedItem();
@@ -241,7 +237,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
                 Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     public static void run() {
         /* Set the Nimbus look and feel */
@@ -279,10 +275,10 @@ public class GUIPropertyPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> cbPropertyStatus;
     private javax.swing.JComboBox<String> cbPropertyType;
     private javax.swing.JComboBox<String> cbState;
-    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
