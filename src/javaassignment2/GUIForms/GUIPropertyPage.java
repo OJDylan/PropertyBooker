@@ -10,6 +10,9 @@ import net.proteanit.sql.DbUtils;
 
 public class GUIPropertyPage extends javax.swing.JFrame {
     private int number;
+    private int iState = 0;
+    private int iType = 0;
+    private int iStatus = 0;
     
     public GUIPropertyPage() {
         initComponents();
@@ -39,6 +42,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         lblCBPropertyType = new javax.swing.JLabel();
         lblCBPropertyStatus = new javax.swing.JLabel();
         lblCBState = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblProperty = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -82,6 +86,13 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         lblCBState.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblCBState.setText("State");
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -97,9 +108,12 @@ public class GUIPropertyPage extends javax.swing.JFrame {
                     .addComponent(lblCBPropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbPropertyStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCBPropertyStatus))
-                .addContainerGap(294, Short.MAX_VALUE))
+                    .addComponent(lblCBPropertyStatus)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(cbPropertyStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(92, 92, 92)
+                        .addComponent(jButton1)))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +127,8 @@ public class GUIPropertyPage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbPropertyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbPropertyStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -189,7 +204,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE))
         );
 
         pack();
@@ -218,14 +233,13 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         Object state = cbState.getSelectedItem();
         if(state.toString().equals("All")){
-            try {
-            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_STATE as STATE FROM PROPERTY WHERE PROPERTY_STATUS = true";
-            ResultSet rs = s.executeQuery(sql);
-            tblProperty.setModel(DbUtils.resultSetToTableModel(rs));
-        } catch (SQLException ex) {
-            Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            iState = 0;
+        } else if(state.toString().equals("Kuala Lumpur")){
+            iState = 1;
+        } else if(state.toString().equals("Selangor")){
+            iState = 2;
+        } else if(state.toString().equals("Penang")){
+            iState = 3;
         }
     }//GEN-LAST:event_cbStateActionPerformed
 
@@ -233,31 +247,44 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         Object type = cbPropertyType.getSelectedItem();
         if(type.toString().equals("All")){
-            try {
-            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_STATE as STATE FROM PROPERTY WHERE PROPERTY_STATUS = true";
-            ResultSet rs = s.executeQuery(sql);
-            tblProperty.setModel(DbUtils.resultSetToTableModel(rs));
-        } catch (SQLException ex) {
-            Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            iType = 0;
+        } else if(type.toString().equals("Apartment")){
+            iType = 1;
+        } else if(type.toString().equals("Condominium")){
+            iType = 2;
+        } else if(type.toString().equals("Terace")){
+            iType = 3;
+        } else if(type.toString().equals("Semi-Detachable")){
+            iType = 4;
         }
     }//GEN-LAST:event_cbPropertyTypeActionPerformed
 
     private void cbPropertyStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPropertyStatusActionPerformed
         // TODO add your handling code here:
-        Object sor = cbPropertyStatus.getSelectedItem();
-        if(sor.toString().equals("All")){
-            try {
-            Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-            String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_STATE as STATE FROM PROPERTY WHERE PROPERTY_STATUS = true";
-            ResultSet rs = s.executeQuery(sql);
-            tblProperty.setModel(DbUtils.resultSetToTableModel(rs));
-        } catch (SQLException ex) {
-            Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
     }//GEN-LAST:event_cbPropertyStatusActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if(iState == 0 || iType == 2){
+            try {
+                Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+                String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_STATE as STATE FROM PROPERTY WHERE PROPERTY_STATUS = true AND PROPERTY_TYPE = " + "'" + "Condominium" + "'";
+                ResultSet rs = s.executeQuery(sql);
+                tblProperty.setModel(DbUtils.resultSetToTableModel(rs));
+            } catch (SQLException ex) {
+                Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if(iState == 1){
+            try {
+                Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+                String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_STATE as STATE FROM PROPERTY WHERE PROPERTY_STATE = " + "'" + "Kuala Lumpur" + "'";
+                ResultSet rs = s.executeQuery(sql);
+                tblProperty.setModel(DbUtils.resultSetToTableModel(rs));
+            } catch (SQLException ex) {
+                Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void run() {
         /* Set the Nimbus look and feel */
@@ -298,6 +325,7 @@ public class GUIPropertyPage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbPropertyStatus;
     private javax.swing.JComboBox<String> cbPropertyType;
     private javax.swing.JComboBox<String> cbState;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
