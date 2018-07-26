@@ -55,27 +55,12 @@ public class GUIPropertyPage extends javax.swing.JFrame {
 
         cbPropertyType.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         cbPropertyType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Apartment", "Condominium", "Terrace", "Semi-Detachable" }));
-        cbPropertyType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbPropertyTypeActionPerformed(evt);
-            }
-        });
 
         cbPropertyStatus.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cbPropertyStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "For Sale", "For Rent" }));
-        cbPropertyStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbPropertyStatusActionPerformed(evt);
-            }
-        });
+        cbPropertyStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Sale", "Rent" }));
 
         cbState.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Kuala Lumpur", "Selangor", "Penang" }));
-        cbState.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbStateActionPerformed(evt);
-            }
-        });
 
         lblCBPropertyType.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblCBPropertyType.setText("Type");
@@ -229,55 +214,27 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tblPropertyMouseClicked
 
-    private void cbStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbStateActionPerformed
-        // TODO add your handling code here:
-        Object state = cbState.getSelectedItem();
-        if(state.toString().equals("All")){
-            iState = 0;
-        } else if(state.toString().equals("Kuala Lumpur")){
-            iState = 1;
-        } else if(state.toString().equals("Selangor")){
-            iState = 2;
-        } else if(state.toString().equals("Penang")){
-            iState = 3;
-        }
-    }//GEN-LAST:event_cbStateActionPerformed
-
-    private void cbPropertyTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPropertyTypeActionPerformed
-        // TODO add your handling code here:
-        Object type = cbPropertyType.getSelectedItem();
-        if(type.toString().equals("All")){
-            iType = 0;
-        } else if(type.toString().equals("Apartment")){
-            iType = 1;
-        } else if(type.toString().equals("Condominium")){
-            iType = 2;
-        } else if(type.toString().equals("Terace")){
-            iType = 3;
-        } else if(type.toString().equals("Semi-Detachable")){
-            iType = 4;
-        }
-    }//GEN-LAST:event_cbPropertyTypeActionPerformed
-
-    private void cbPropertyStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPropertyStatusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbPropertyStatusActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if(iState == 0 || iType == 2){
+        Object state = cbState.getSelectedItem();
+        Object type = cbPropertyType.getSelectedItem();
+        Object ros = cbPropertyStatus.getSelectedItem();
+        if(state.toString().equals("All") && type.toString().equals("All") && ros.toString().equals("All")){
             try {
                 Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-                String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_STATE as STATE FROM PROPERTY WHERE PROPERTY_STATUS = true AND PROPERTY_TYPE = " + "'" + "Condominium" + "'";
+                String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_STATE as STATE FROM PROPERTY WHERE PROPERTY_STATUS = true";
                 ResultSet rs = s.executeQuery(sql);
                 tblProperty.setModel(DbUtils.resultSetToTableModel(rs));
             } catch (SQLException ex) {
                 Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if(iState == 1){
+        } else {
             try {
                 Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
-                String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_STATE as STATE FROM PROPERTY WHERE PROPERTY_STATE = " + "'" + "Kuala Lumpur" + "'";
+                String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_STATE as STATE FROM PROPERTY WHERE PROPERTY_STATUS = true " +
+                            "AND PROPERTY_STATE = " + "'" + state + "'" +
+                            "OR PROPERTY_TYPE = " + "'" + type + "'" +
+                            "OR SALE_RENT = " + "'" + ros + "'";
                 ResultSet rs = s.executeQuery(sql);
                 tblProperty.setModel(DbUtils.resultSetToTableModel(rs));
             } catch (SQLException ex) {
