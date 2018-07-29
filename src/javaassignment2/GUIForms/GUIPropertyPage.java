@@ -207,6 +207,9 @@ public class GUIPropertyPage extends javax.swing.JFrame {
         } else if(row == 1){
             GUIPropertyDetails pd = new GUIPropertyDetails(2);
             pd.run();
+        } else if(row == 2){
+            GUIPropertyDetails pd = new GUIPropertyDetails(3);
+            pd.run();
         }
     }//GEN-LAST:event_tblPropertyMouseClicked
 

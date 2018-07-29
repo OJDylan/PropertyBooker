@@ -55,8 +55,36 @@ public class GUIPropertyDetails extends javax.swing.JFrame {
             }
             lblMap.setIcon(pics[0]);
             lblPImage.setIcon(pics[3]);
-        }
-        else if(number == 2){
+        } else if(number == 2){
+            try {
+                Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+                String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + number;
+                ResultSet rs = s.executeQuery(sql);
+                
+                while(rs.next()){
+                    lblName.setText(rs.getString("AGENT_NAME"));
+                    lblNumber.setText(rs.getString("AGENT_CONTACT"));
+                    lblEmail.setText(rs.getString("AGENT_EMAIL"));
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(GUIPropertyDetails.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+                String sql = "SELECT * FROM PROPERTY WHERE PROPERTY_ID = " + number;
+                ResultSet rs = s.executeQuery(sql);
+                
+                while(rs.next()){
+                    lblPrice.setText(rs.getString("PROPERTY_PRICE"));
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(GUIPropertyDetails.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            lblMap.setIcon(pics[2]);
+            lblPImage.setIcon(pics[5]);
+        } else if(number == 3){
             try {
                 Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
                 String sql = "SELECT * FROM AGENT WHERE AGENT_ID = " + number;
