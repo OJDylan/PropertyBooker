@@ -142,6 +142,10 @@ public class GUIEditProperty extends javax.swing.JFrame {
             number = 2;
             GUIEditPropertyPage pg = new GUIEditPropertyPage(number);
             pg.run();
+        } else if(row == 2){
+            number = 3;
+            GUIEditPropertyPage pg = new GUIEditPropertyPage(number);
+            pg.run();
         }
     }//GEN-LAST:event_tblPropertyMouseClicked
 

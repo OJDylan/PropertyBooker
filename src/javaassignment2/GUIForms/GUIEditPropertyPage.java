@@ -31,8 +31,20 @@ public class GUIEditPropertyPage extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(GUIEditPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        else if(number == 2){
+        } else if(number == 2){
+            try {
+                Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+                String sql = "SELECT * FROM PROPERTY WHERE PROPERTY_ID = " + number;
+                ResultSet rs = s.executeQuery(sql);
+                
+                while(rs.next()){
+                    txtPName.setText(rs.getString("PROPERTY_NAME"));
+                    txtPPrice.setText(rs.getString("PROPERTY_PRICE"));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(GUIEditPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if(number == 3){
             try {
                 Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
                 String sql = "SELECT * FROM PROPERTY WHERE PROPERTY_ID = " + number;
