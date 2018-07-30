@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 public class GUIPropertyPage extends javax.swing.JFrame {
@@ -223,6 +224,19 @@ public class GUIPropertyPage extends javax.swing.JFrame {
             try {
                 Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
                 String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_STATE as STATE FROM PROPERTY WHERE PROPERTY_STATUS = true";
+                ResultSet rs = s.executeQuery(sql);
+                tblProperty.setModel(DbUtils.resultSetToTableModel(rs));
+            } catch (SQLException ex) {
+                Logger.getLogger(GUIPropertyPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if(state.toString().equals("Penang") && type.toString().equals("Terrace") && ros.toString().equals("All")) {
+            JOptionPane.showMessageDialog(null, "No property found!");
+            try {
+                Statement s = DriverManager.getConnection("jdbc:derby://localhost:1527/javaassignment", "Dylan", "001").createStatement();
+                String sql ="SELECT PROPERTY_NAME as Property, PROPERTY_TYPE as Type, TENURE as Tenure, PROPERTY_STATE as STATE FROM PROPERTY WHERE PROPERTY_STATUS = true " +
+                            "AND PROPERTY_STATE = " + "'" + state + "'" +
+                            "OR PROPERTY_TYPE = " + "'" + type + "'" +
+                            "OR SALE_RENT = " + "'" + ros + "'";
                 ResultSet rs = s.executeQuery(sql);
                 tblProperty.setModel(DbUtils.resultSetToTableModel(rs));
             } catch (SQLException ex) {
