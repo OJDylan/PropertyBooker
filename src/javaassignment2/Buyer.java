@@ -47,6 +47,9 @@ public class Buyer extends User{
             //Shows register successful message
             JOptionPane.showMessageDialog(null, "Account successfully created!");
             
+        } catch (SQLIntegrityConstraintViolationException ex){
+            JOptionPane.showMessageDialog(null, "Username already exists, please try again.");
+            Logger.getLogger(Buyer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Failed to create account, please try again");
             Logger.getLogger(Buyer.class.getName()).log(Level.SEVERE, null, ex);
@@ -75,6 +78,9 @@ public class Buyer extends User{
             //Shows register successful message
             JOptionPane.showMessageDialog(null, "Account successfully created!");
             
+        } catch (SQLIntegrityConstraintViolationException ex){
+            JOptionPane.showMessageDialog(null, "Username already exists, please try again.");
+            Logger.getLogger(Buyer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Failed to create account, please try again");
             Logger.getLogger(Buyer.class.getName()).log(Level.SEVERE, null, ex);
