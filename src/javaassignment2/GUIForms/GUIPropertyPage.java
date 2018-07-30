@@ -201,13 +201,14 @@ public class GUIPropertyPage extends javax.swing.JFrame {
     private void tblPropertyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPropertyMouseClicked
         // TODO add your handling code here:
         int row = tblProperty.rowAtPoint(evt.getPoint());
-        if(row == 0){
+        int col = tblProperty.columnAtPoint(evt.getPoint());
+        if(tblProperty.getValueAt(row,col).toString().equals("IJM The Loof")){
             GUIPropertyDetails pd = new GUIPropertyDetails(1);
             pd.run();
-        } else if(row == 1){
+        } else if(tblProperty.getValueAt(row,col).toString().equals("SETIA The Pyramid")){
             GUIPropertyDetails pd = new GUIPropertyDetails(2);
             pd.run();
-        } else if(row == 2){
+        } else if(tblProperty.getValueAt(row,col).toString().equals("ECOWORLD The Place")){
             GUIPropertyDetails pd = new GUIPropertyDetails(3);
             pd.run();
         }
